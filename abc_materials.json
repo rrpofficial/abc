@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5babd8aa4e26e605088f9eaa"},"name":"Hydrate","rate":50,"unit":"Kg","__v":0}
+{"_id":{"$oid":"5babd8c64e26e605088f9eab"},"name":"Sulphuric Acid Fresh","rate":15,"unit":"Kg","__v":0}
+{"_id":{"$oid":"5babd8d84e26e605088f9eac"},"name":"Bauxite","rate":30,"unit":"Kg","__v":0}

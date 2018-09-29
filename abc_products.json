@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5babd7d24e26e605088f9ea6"},"name":"Ferric Alumn Slabs","rate":6.5,"unit":"Kg","__v":0}
+{"_id":{"$oid":"5babd7ee4e26e605088f9ea7"},"name":"Non-Ferric Alumn Slabs","rate":15,"unit":"Kg","__v":0}
+{"_id":{"$oid":"5babd7fe4e26e605088f9ea8"},"name":"Non-Ferric Alumn Powder","rate":16,"unit":"Kg","__v":0}
+{"_id":{"$oid":"5babd80b4e26e605088f9ea9"},"name":"Non-Ferric Alumn Pebbles","rate":16,"unit":"Kg","__v":0}
