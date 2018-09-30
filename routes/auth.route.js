@@ -29,7 +29,8 @@ router.post('/', async (req, res)=>{
     } );
    
     res.header('x-auth-token', token);
-    res.send(token);
+    res.header('Access-Control-Expose-Headers', 'x-auth-token');
+    res.send({'success' : true, 'message':'Authentication success', 'token': token});
 
 });
 
