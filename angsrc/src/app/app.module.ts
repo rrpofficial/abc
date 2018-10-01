@@ -16,6 +16,7 @@ import { MaterialComponent } from './components/material/material.component';
 import { VendorComponent } from './components/vendor/vendor.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { PayableComponent } from './components/payable/payable.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
