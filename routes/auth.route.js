@@ -23,7 +23,7 @@ router.post('/', async (req, res)=>{
     const isValid = await comparePwd(req.body.password, user.password);
     if(!isValid) return res.status(400).send({message : 'Invalid email or password'});
 
-    const token = jwt.sign(_.pick(user, ['_id', 'name', 'email']), config.get('jwtPrivateKey'), {
+    const token = jwt.sign(_.pick(user, ['_id', 'name', 'email', 'isAdmin']), config.get('jwtPrivateKey'), {
          expiresIn : 86400
 
     } );
