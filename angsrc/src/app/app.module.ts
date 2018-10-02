@@ -16,8 +16,8 @@ import { MaterialComponent } from './components/material/material.component';
 import { VendorComponent } from './components/vendor/vendor.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { PayableComponent } from './components/payable/payable.component';
-import { JwtModule } from '@auth0/angular-jwt';
-
+// import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuard } from './services/auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,13 +41,13 @@ import { JwtModule } from '@auth0/angular-jwt';
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'login', component: LoginFormComponent},
-      { path : 'orders', component : OrderComponent},
-      { path : 'payables', component : PayableComponent},
-      { path : 'recievables', component : RecievableComponent},
-      { path : 'products', component : ProductComponent},
-      { path : 'materials', component : MaterialComponent},
-      { path : 'customers', component : CustomerComponent},
-      { path : 'vendors', component : VendorComponent},
+      { path : 'orders', component : OrderComponent, canActivate: [AuthGuard]},
+      { path : 'payables', component : PayableComponent, canActivate: [AuthGuard]},
+      { path : 'recievables', component : RecievableComponent, canActivate: [AuthGuard]},
+      { path : 'products', component : ProductComponent, canActivate: [AuthGuard]},
+      { path : 'materials', component : MaterialComponent, canActivate: [AuthGuard]},
+      { path : 'customers', component : CustomerComponent, canActivate: [AuthGuard]},
+      { path : 'vendors', component : VendorComponent, canActivate: [AuthGuard]},
     ]),
     NgbModule.forRoot(),
   ],

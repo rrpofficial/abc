@@ -1,3 +1,24 @@
-<p>
-  products works!
-</p>
+<!-- <label for="typeahead-basic">Search for a Product:</label>
+<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="product" [ngbTypeahead]="search"/>
+<hr> -->
+
+<div *ngFor= "let product of products"class="card text-left">
+    <div class="card-header">
+        {{product.name}}
+    </div>
+    <div class="card-body collapse.show">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer text-muted">
+        <div class="row">
+          <div class="col-xs-6">
+              <a href="#" class="btn btn-primary btn">Edit</a>
+          </div>
+          <div class="col-xs-6">
+              <a href="#" class="btn btn-danger">Delete</a>
+          </div>
+        </div> 
+        
+    </div>
+  </div>

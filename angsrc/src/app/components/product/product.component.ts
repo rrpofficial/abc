@@ -7,11 +7,14 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  products;
+  products : any;
   
   constructor(private productService: ProductService) { 
     console.log('inside product component');
-    this.products = this.productService.getAllProducts();
+   this.productService.getAllProducts().subscribe((data)=>{
+    console.log('products',data);
+    this.products = data;
+   });
   }
   // getProducts(){
   //   this.products = this.productService.getAllProducts();

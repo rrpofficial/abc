@@ -1,0 +1,11 @@
+
+.card{
+    margin: 1em;
+}
+.card-header{
+    background-color: #424242;
+    color : #FAFAFA;
+}
+.card-footer{
+    background-color: #BDBDBD;
+}
