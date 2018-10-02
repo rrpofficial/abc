@@ -10,7 +10,6 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { HttpModule } from '@angular/http';
 import { ProductComponent } from './components/product/product.component';
 import { OrderComponent } from './components/order/order.component';
-import { TestComponent } from './components/test/test.component';
 import { RecievableComponent } from './components/recievable/recievable.component';
 import { MaterialComponent } from './components/material/material.component';
 import { VendorComponent } from './components/vendor/vendor.component';
@@ -18,6 +17,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { PayableComponent } from './components/payable/payable.component';
 // import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './services/auth-guard.service';
+import { UserComponent } from './components/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +26,12 @@ import { AuthGuard } from './services/auth-guard.service';
     LoginFormComponent,
     ProductComponent,
     OrderComponent,
-    TestComponent,
     RecievableComponent,
     MaterialComponent,
     VendorComponent,
     CustomerComponent,
-    PayableComponent
+    PayableComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
