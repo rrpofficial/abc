@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fuid">
     <a class="navbar-brand" routerLink="/">ABSOLUTE CHEMICALS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,29 +16,29 @@
           <a class="nav-link" routerLink="/payables">Payables <span class="sr-only"></span></a>
         </li>
         <li *ngIf="!_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
-            <a class="nav-link" routerLink="/login">Login <span class="sr-only"></span></a>
-          </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="/">Link</a>
-        </li> -->
-        <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ _userService.getName() }}
-          </a>
-          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/customers">Manage Customers</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/products">Manage Products</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/materials">Manage Materials</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/vendors">Manage Vendors</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/users">Manage Users</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logout()">Logout</a>
-          </div>
+            <a class="nav-link" routerLink="/login">Login </a>
         </li>
-      </ul>
-    </div>
-  </nav>
+        <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ _userService.getName()}}
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <!-- <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Manage</a>
+                <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" routerLink="/customers">Customers</a>
+                <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" routerLink="/products">Products</a>
+                <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" routerLink="/materials">Materials</a>
+                <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" routerLink="/vendors">Vendors</a>
+                <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" routerLink="/users">Users</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+              </div>
+      </li>
+    </ul>
+  </div>
+</nav>
