@@ -18,7 +18,7 @@ import { PayableComponent } from './components/payable/payable.component';
 // import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './services/auth-guard.service';
 import { UserComponent } from './components/user/user.component';
-import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
+import { AccountdetailComponent } from './components/accountdetail/accountdetail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,7 @@ import { AccountdetailsComponent } from './components/accountdetails/accountdeta
     CustomerComponent,
     PayableComponent,
     UserComponent,
-    AccountdetailsComponent
+    AccountdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +50,8 @@ import { AccountdetailsComponent } from './components/accountdetails/accountdeta
       { path : 'materials', component : MaterialComponent, canActivate: [AuthGuard]},
       { path : 'customers', component : CustomerComponent, canActivate: [AuthGuard]},
       { path : 'vendors', component : VendorComponent, canActivate: [AuthGuard]},
+      { path : 'users', component : UserComponent, canActivate: [AuthGuard]},
+      { path : 'accountdetails', component : AccountdetailComponent, canActivate: [AuthGuard]},
     ]),
     NgbModule.forRoot(),
   ],
