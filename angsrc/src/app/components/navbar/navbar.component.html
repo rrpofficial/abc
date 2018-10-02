@@ -20,25 +20,32 @@
         </li>
         <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
               <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{ _userService.getName()}}
+                 Manage
               </a>
               <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <!-- <div class="dropdown-divider"></div>
-                <a class="dropdown-item">Manage</a>
-                <div class="dropdown-divider"></div> -->
+               
                 <a class="dropdown-item" routerLink="/customers">Customers</a>
-                <!-- <div class="dropdown-divider"></div> -->
-                <a class="dropdown-item" routerLink="/products">Products</a>
-                <!-- <div class="dropdown-divider"></div> -->
-                <a class="dropdown-item" routerLink="/materials">Materials</a>
-                <!-- <div class="dropdown-divider"></div> -->
-                <a class="dropdown-item" routerLink="/vendors">Vendors</a>
-                <!-- <div class="dropdown-divider"></div> -->
-                <a class="dropdown-item" routerLink="/users">Users</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" (click)="logout()">Logout</a>
+                <a class="dropdown-item" routerLink="/products">Products</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="/materials">Materials</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="/vendors">Vendors</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="/users">Users</a>
               </div>
       </li>
+      <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ _userService.getName()}}
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1">
+              <!-- <div class="dropdown-divider"></div> -->
+              <a class="dropdown-item" routerLink="/accountdetails">Account details</a>
+              <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </div>
+  </li>
     </ul>
   </div>
 </nav>

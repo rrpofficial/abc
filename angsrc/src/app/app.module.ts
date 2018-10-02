@@ -18,6 +18,7 @@ import { PayableComponent } from './components/payable/payable.component';
 // import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './services/auth-guard.service';
 import { UserComponent } from './components/user/user.component';
+import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { UserComponent } from './components/user/user.component';
     VendorComponent,
     CustomerComponent,
     PayableComponent,
-    UserComponent
+    UserComponent,
+    AccountdetailsComponent
   ],
   imports: [
     BrowserModule,
