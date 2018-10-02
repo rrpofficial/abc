@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   
   
-  constructor(private userService : UserService, private router: Router) {
+  constructor(private _userService : UserService, private _router: Router) {
         
    }
 
@@ -19,8 +19,8 @@ export class NavbarComponent implements OnInit {
   }
   
   logout(){
-    this.userService.logout();
-    this.router.navigate['/']
+    this._userService.logout();
+    this._router.navigate(['']);
   }
 
 }
