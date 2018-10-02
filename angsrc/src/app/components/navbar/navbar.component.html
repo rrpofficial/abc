@@ -18,9 +18,9 @@
         <li *ngIf="!_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
             <a class="nav-link" routerLink="/login">Login </a>
         </li>
-        <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
+        <li  *ngIf="_userService.isLoggedIn() && userObj.isAdmin" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
               <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Manage
+                 Manage 
               </a>
               <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                
@@ -37,7 +37,7 @@
       </li>
       <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ _userService.getName()}}
+              <!-- {{ _userService.getName()}} -->{{ userObj.name}}
           </a>
           <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1">
               <!-- <div class="dropdown-divider"></div> -->

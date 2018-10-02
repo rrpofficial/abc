@@ -13,12 +13,13 @@ export class AdminAuthGuard implements CanActivate {
 
   canActivate(): Observable<boolean>{
     const token = localStorage.getItem('access_token');
-    const id = this._userService.getDecodedJwtToken(token)._id;
+    const decodedToken = this._userService.getDecodedJwtToken(token);
+    const id = decodedToken._id;
     console.log('token in Admin guard is '+token);
-    console.log('Name in Admin guard is '+this._userService.getDecodedJwtToken(token).name);
+    console.log('Name in Admin guard is '+decodedToken.name);
     return this._userService.getUserById(id).pipe(map(user => {
      console.log(user);
-     return user.isAdmin
+     return user.isAdmin;
     }));
    
   }

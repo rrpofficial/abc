@@ -25,14 +25,12 @@ export class LoginFormComponent  {
 
   login(){
     const formVal = this.loginForm.value;
-    console.log('login from login component');
-    // this.userService.userAuthentication('rponnala@vidly.com','Password@1');
+   
     this.userService.userAuthentication(formVal.email, formVal.password)
     .subscribe((result)=>{
       if(result.success){
         this.userService.saveUserData(result.token);
-        // console.log(this.userService.isLoggedIn());
-        console.log('token from Login Comp : '+result.token);
+      
         this.router.navigate(['']);
       }
         

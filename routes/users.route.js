@@ -15,6 +15,15 @@ router.get('/', async (req, res)=>{
     res.send(users)
 });
 
+router.get('/:id', async (req, res)=>{
+    const user = await User
+     .findById(req.params.id)
+     .select({'_id' : 1, 'name' : 1, 'email' : 1, 'isAdmin': 1})
+    //  console.log(user);
+     res.send(user);
+ });
+ 
+
 router.post('/', async (req, res)=>{
     const {error} = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);

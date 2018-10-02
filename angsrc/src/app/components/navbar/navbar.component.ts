@@ -9,13 +9,25 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   
+  user: any;
+
+  
   
   constructor(private _userService : UserService, private _router: Router) {
-        
+    
    }
 
   ngOnInit() {
     
+  }
+
+  get userObj(){
+    if (this._userService.getCurrentUser) {
+          this.user = this._userService.getCurrentUser();
+          // console.log('in User Obj and user is ',this.user.name );
+          return this.user;
+
+        } 
   }
   
   logout(){
