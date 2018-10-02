@@ -1,3 +1,14 @@
-<p>
-  accountdetails works!
-</p>
+<div class="panel">
+  <div class="row">
+    <div class="col-xs-4">Name: </div>
+    <div class="col xs-8">{{accountDetails.name | uppercase}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">Email : </div>
+    <div class="col xs-8">{{accountDetails.email}}</div>
+  </div>
+  <div *ngIf="accountDetails.isAdmin" class="row">
+    <div class="col-xs-4">Admin</div>
+    <div class="col xs-8">Yes</div>
+  </div>
+</div>
