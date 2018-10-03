@@ -1,11 +1,12 @@
-
-.card{
-    margin: 1em;
+.vertical-aligned{
+    vertical-align: middle;
 }
 .card-header{
-    background-color: #424242;
-    color : #FAFAFA;
+    /* padding: 1.25rem 1.25rem; */
+    padding-bottom: 0;
+    background-color: #33b5e5;
+    font-weight: 500;
+    color: whitesmoke;
+    text-transform: uppercase;
 }
-.card-footer{
-    background-color: #BDBDBD;
-}
+

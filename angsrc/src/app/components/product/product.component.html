@@ -1,24 +1,55 @@
-<!-- <label for="typeahead-basic">Search for a Product:</label>
-<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="product" [ngbTypeahead]="search"/>
-<hr> -->
+<!-- <div class="table-container">
+    <table class="table table-filter">
+        <tbody>
+            <tr>
 
-<div *ngFor= "let product of products"class="card text-left">
-    <div class="card-header">
-        {{product.name}}
-    </div>
-    <div class="card-body collapse.show">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    </div>
-    <div class="card-footer text-muted">
-        <div class="row">
-          <div class="col-xs-6">
-              <a href="#" class="btn btn-primary btn">Edit</a>
-          </div>
-          <div class="col-xs-6">
-              <a href="#" class="btn btn-danger">Delete</a>
-          </div>
-        </div> 
-        
-    </div>
-  </div>
+            </tr>
+            <tr *ngFor="let product of products">
+                <td>
+                   <p style="font-weight: bold; color: #33b5e5!important;"> {{product.name | uppercase}}</p>
+                   <p> The rate for {{product.name}} is {{product.rate | currency : 'INR'}} per {{product.unit}}</p>
+                </td>
+                <td class="vertical-aligned">
+                    <button type="button" class="btn btn-warning btn-block">Edit</button>
+                </td>
+                <td class="vertical-aligned">
+                        <button type="button" class="btn btn-danger btn-block">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<div class="container">
+        <div style="margin-top: 20px" class="active-cyan-4 mb-4">
+                <input class="form-control" type="text" placeholder="Search Products" aria-label="Search">
+        </div>
+        <div *ngFor="let product of products" style="margin-bottom: 20px;" class="card">
+                <div  style="background-color: #33b5e5" class="card-header">
+                        <div class="row">
+                                <div class="col-12"> <p>{{product.name}}</p></div>
+                           </div>
+                </div>
+                <div  class="card-body">
+                        <div class="row ">
+                                <div class="col-8">
+                                    <div class="row">
+                                         <div class="col-12"> <p>{{product.name}}</p>
+                                    </div>
+                                    <div class="col-12">
+                                            <p>Rate :  {{product.rate | currency : 'INR'}} per {{product.unit}}</p>
+                                       </div>
+                                   </div>
+                                </div>
+                                <div class="col my-auto">
+                                        <button type="button" class="btn btn-warning btn-block">Edit</button>
+                                </div>
+                                <div class="col my-auto">
+                                        <button type="button" class="btn btn-danger btn-block">Delete</button>
+                                </div>
+                            </div>
+                </div>
+        </div>
+            
+
+</div>
