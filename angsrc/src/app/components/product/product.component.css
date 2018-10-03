@@ -5,8 +5,14 @@
     /* padding: 1.25rem 1.25rem; */
     padding-bottom: 0;
     background-color: #33b5e5;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: .75em;
     color: whitesmoke;
     text-transform: uppercase;
 }
 
+.card-body{
+    font-weight: 600;
+    font-size: .75em;
+    text-transform: uppercase;
+}

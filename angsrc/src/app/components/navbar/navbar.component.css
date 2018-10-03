@@ -4,7 +4,20 @@
 .br-navbar{
     min-height: 4rem;
     background-color: #33b5e5!important;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: .75em;
     text-transform: uppercase;
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
+}
+
+.dropdown-item{
+    min-height: 1rem;
+    font-weight: 600;
+    font-size: .75em;
+    text-transform: uppercase;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: #33b5e5!important;
+    color : whitesmoke;
 }
