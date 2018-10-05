@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AdminAuthGuard implements CanActivate {
-  
+
   constructor(private _userService : UserService) { }
 
   canActivate(): Observable<boolean>{
@@ -21,6 +21,5 @@ export class AdminAuthGuard implements CanActivate {
      console.log(user);
      return user.isAdmin;
     }));
-   
   }
 }
