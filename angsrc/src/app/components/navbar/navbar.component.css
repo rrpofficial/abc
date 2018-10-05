@@ -11,13 +11,21 @@
 }
 
 .dropdown-item{
-    min-height: 1rem;
+    min-height: 0.1rem;
     font-weight: 600;
     font-size: .75em;
     text-transform: uppercase;
+    padding: 0.02rem 1.5rem;
+
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
     background-color: #33b5e5!important;
     color : whitesmoke;
+}
+
+.dropdown-menu{
+    top: 34px;
+    left: -24px;
+    border-left: 3px solid #33b5e5;
 }

@@ -1,3 +1,17 @@
-<p>
-  material works!
-</p>
+<div class="container">
+
+  <div style="margin-top: 20px" class="active-cyan-4 mb-4">
+    <input class="form-control" type="text" placeholder="Search Materials" aria-label="Search">
+  </div>
+  <p>
+    <a routerLink="/materials/new" class="btn btn-primary"> New Raw Material</a>
+  </p>
+  <app-bs-card *ngFor="let material of materials" style="margin-bottom: 20px;">
+    <ng-container class="bs-card-item-name">
+      <p>{{material.name}}</p>
+    </ng-container>
+    <ng-container class="bs-card-item-rate">
+      <p>Rate : {{material.rate | currency : 'INR'}} per {{material.unit}}
+    </ng-container>
+  </app-bs-card>
+</div>

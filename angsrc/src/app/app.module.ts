@@ -19,6 +19,8 @@ import { PayableComponent } from './components/payable/payable.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { UserComponent } from './components/user/user.component';
 import { AccountdetailComponent } from './components/accountdetail/accountdetail.component';
+import { ProductFormComponent } from './components/productform/productform.component';
+import { BsCardComponent } from './recomponents/bs-card/bs-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { AccountdetailComponent } from './components/accountdetail/accountdetail
     CustomerComponent,
     PayableComponent,
     UserComponent,
-    AccountdetailComponent
+    AccountdetailComponent,
+    ProductFormComponent,
+    BsCardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +50,12 @@ import { AccountdetailComponent } from './components/accountdetail/accountdetail
       { path : 'orders', component : OrderComponent, canActivate: [AuthGuard]},
       { path : 'payables', component : PayableComponent, canActivate: [AuthGuard]},
       { path : 'recievables', component : RecievableComponent, canActivate: [AuthGuard]},
-      { path : 'products', component : ProductComponent, canActivate: [AuthGuard]},
       { path : 'materials', component : MaterialComponent, canActivate: [AuthGuard]},
+      { path : 'products/new', component : ProductFormComponent, canActivate: [AuthGuard]},
+      { path : 'products/:id', component : ProductFormComponent, canActivate: [AuthGuard]},
+      { path : 'products', component : ProductComponent, canActivate: [AuthGuard]},
+      { path : 'customers/new', component : CustomerComponent, canActivate: [AuthGuard]},
+      { path : 'customers/:id', component : CustomerComponent, canActivate: [AuthGuard]},
       { path : 'customers', component : CustomerComponent, canActivate: [AuthGuard]},
       { path : 'vendors', component : VendorComponent, canActivate: [AuthGuard]},
       { path : 'users', component : UserComponent, canActivate: [AuthGuard]},

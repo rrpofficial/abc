@@ -1,3 +1,22 @@
-<p>
-  customer works!
-</p>
+<div class="container">
+    <div style="margin-top: 20px" class="active-cyan-4 mb-4">
+        <input class="form-control" type="text" placeholder="Search Customer" aria-label="Search">
+    </div>
+    <p>
+        <a routerLink="/customers/new" class="btn btn-primary">New Customer</a>
+    </p>
+
+
+    <app-bs-card *ngFor="let customer of customers">
+        <ng-container class="bs-card-item-name">
+            <p>Customer Name : {{customer.name}}</p>
+        </ng-container>
+
+        <ng-container class="bs-card-item-rate">
+            <p>GSTIN : {{customer.gstin}}</p>
+            <p>Address : {{customer.primaryAddress.addressline1}}</p>
+            <p>State: {{customer.primaryAddress.state}}</p>
+            <p>Phone Number : {{customer.primaryPhone}}</p>
+        </ng-container>
+    </app-bs-card>
+</div>

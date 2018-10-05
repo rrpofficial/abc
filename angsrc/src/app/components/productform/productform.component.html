@@ -1,0 +1,38 @@
+<div class="card">
+    <div style="padding-left: 10px;" class="row ">
+        <div class="col center">
+            <!-- <form [formGroup]="changePasswordForm" > -->
+          <form  >
+             <div class="col-6 form-group">
+                <label for="name">Product Name</label>
+                <!-- <input  formControlName="current-password" id="password" type="password" class="form-control"> -->
+                 <input  id="name" type="text" class="form-control">
+             </div>
+             <div class="col-6 form-group">
+              <label for="rate">Rate</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">₹</span>
+                    </div>
+                 
+                  <!-- <input formControlName="new-password" id="new-password" type="text" class="form-control"> -->
+                  <input  id="rate" type="text" class="form-control">
+                  <div class="input-group-append">
+                      <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 form-group">
+              <label for="unit">Unit</label>
+              <!-- <input formControlName="confirm-password" id="confirm-password" type="text" class="form-control"> -->
+              <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Kg</option>
+                  <option>Ton</option>
+                  <option>Litre</option>
+                </select>
+              </div>
+              <button class="btn btn-success" type="button">Save Product</button>
+            </form>
+    </div>
+    </div>
+</div>
