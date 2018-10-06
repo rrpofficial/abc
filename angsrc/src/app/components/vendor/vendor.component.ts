@@ -1,3 +1,4 @@
+import { VendorService } from './../../services/vendor.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vendor.component.css']
 })
 export class VendorComponent implements OnInit {
-
-  constructor() { }
+  vendors;
+  constructor(private _vendorService: VendorService) { }
 
   ngOnInit() {
+    this._vendorService.getAllVendors().subscribe((data) => {
+      this.vendors = data;
+    });
   }
 
 }

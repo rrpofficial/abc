@@ -1,3 +1,16 @@
-<p>
-  vendor works!
-</p>
+<div class="container">
+  <div style="margin-top: 20px" class="active-cyan-4 mb-4">
+    <input type="text" class="form-control" placeholder="Search Vendor" aria-label="Search Vendor">
+  </div>
+  <p>
+    <a routerLink="" class="btn btn-primary">New Vendor</a>
+  </p>
+  <app-bs-card *ngFor="let vendor of vendors">
+    <ng-container class="bs-card-item-name">
+      <p>{{vendor.name}}</p>
+    </ng-container>
+    <ng-container class="bs-card-item-rate">
+      <p>{{vendor.gstin}}</p>
+    </ng-container>
+  </app-bs-card>
+</div>

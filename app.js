@@ -1,22 +1,21 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const passport = require('passport');
-const cors = require('cors');
+const passport = require("passport");
+const cors = require("cors");
 
 app.use(express.json());
 var corsOptions = {
-    origin: '*',
-    "methods": "GET,HEAD,PUT,POST",
-    // "preflightContinue": false,
-    allowedHeaders :['Content-Type', 'Authorization', 'x-auth-token','ETag'],
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-  }
-  
+  origin: "*",
+  methods: "GET,HEAD,PUT,POST",
+  // "preflightContinue": false,
+  allowedHeaders: ["Content-Type", "Authorization", "x-auth-token", "ETag"],
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
 app.use(cors(corsOptions));
 
-require('./routes/routes')(app);
-require('./init/db')();
-
+require("./routes/routes")(app);
+require("./init/db")();
 
 // app.use(function (req, res, next) {
 
@@ -38,6 +37,5 @@ require('./init/db')();
 // });
 app.use(passport.initialize());
 app.use(passport.session());
-require('./middleware/passport')(passport);
-
+require("./middleware/passport")(passport);
 app.listen(3000);

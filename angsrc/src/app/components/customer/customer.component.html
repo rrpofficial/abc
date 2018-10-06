@@ -9,11 +9,11 @@
 
     <app-bs-card *ngFor="let customer of customers">
         <ng-container class="bs-card-item-name">
-            <p>Customer Name : {{customer.name}}</p>
+            <p style="float : left; width : 50%">Customer Name : {{customer.name}}</p>
+            <p>GSTIN : {{customer.gstin}}</p>
         </ng-container>
 
         <ng-container class="bs-card-item-rate">
-            <p>GSTIN : {{customer.gstin}}</p>
             <p>Address : {{customer.primaryAddress.addressline1}}</p>
             <p>State: {{customer.primaryAddress.state}}</p>
             <p>Phone Number : {{customer.primaryPhone}}</p>

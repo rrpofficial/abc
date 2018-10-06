@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Fahkwang');
+
+.body{
+  font-family: 'Fahkwang', sans-serif;
+}
+.btn-primary{
+  color: whitesmoke;
+  background-color: #33b5e5;
+  border-color: #33b5e5;
+}

@@ -69,9 +69,7 @@ export class UserService {
     };
     return user;
   }
-
-  // testLog() {
-  //   console.log("test log ");
-  //   return "testlog";
-  // }
+  getAllUsers(){
+    return this.http.get(this.baseUrl+'/users').pipe(map(res => res.json()));
+  }
 }

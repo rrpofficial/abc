@@ -1,3 +1,20 @@
-<p>
-  user works!
-</p>
+<div class="container">
+  <div style="margin-top: 20px" class="active-cyan-4 mb-4">
+    <input type="text" placeholder="Search User" class="form-control" aria-label="searchUser">
+  </div>
+  <p>
+    <a routerLink="" class="btn btn-primary">Create New User</a>
+  </p>
+  <app-bs-card *ngFor="let user of users">
+    <ng-container class="bs-card-item-name">
+      <div class="col-6">Name : {{user.name}}</div>
+    </ng-container>
+    <ng-container class="bs-card-item-rate">
+      <div class="col-6">
+        Email : {{user.email}}
+        <p *ngIf="user.isAdmin"> Administrator : Yes </p>
+        <p *ngIf="!user.isAdmin"> Administrator : No </p>
+      </div>
+    </ng-container>
+  </app-bs-card>
+</div>
