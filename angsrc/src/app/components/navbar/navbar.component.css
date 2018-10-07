@@ -25,7 +25,8 @@
 }
 
 .dropdown-menu{
-    top: 34px;
-    left: -24px;
     border-left: 3px solid #33b5e5;
+}
+.fas{
+    padding: 0.2em;
 }

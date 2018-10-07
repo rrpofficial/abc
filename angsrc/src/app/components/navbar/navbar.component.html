@@ -1,52 +1,65 @@
 <nav class="navbar navbar-expand-lg navbar-dark container-fuid br-navbar">
+  <div class="container">
     <a class="navbar-brand" routerLink="/">ABSOLUTE CHEMICALS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
-          <a  class="nav-link" routerLink="/orders">Orders <span class="sr-only"></span></a>
+      <ul class="navbar-nav ml-auto">
+        <li *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
+          <a class="nav-link" routerLink="/orders"><i class="fas fa-th-list"></i>Orders <span class="sr-only"></span></a>
         </li>
-        <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
-          <a  class="nav-link" routerLink="/recievables">Recievables<span class="sr-only"></span></a>
+        <li *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
+          <a class="nav-link" routerLink="/recievables"><i class="fas fa-rupee-sign"></i>Recievables<span class="sr-only"></span></a>
         </li>
-        <li   *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
-          <a class="nav-link" routerLink="/payables">Payables <span class="sr-only"></span></a>
+        <li *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
+          <a class="nav-link" routerLink="/payables"><i class="fas fa-rupee-sign"></i>Payables <span class="sr-only"></span></a>
         </li>
         <li *ngIf="!_userService.isLoggedIn()" routerLinkActive="active current" class="nav-item">
-            <a class="nav-link" routerLink="/login">Login </a>
+          <a class="nav-link" routerLink="/login">Login </a>
         </li>
-        <li  *ngIf="_userService.isLoggedIn() && userObj.isAdmin" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
-              <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Manage 
-              </a>
-              <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               
-                <a class="dropdown-item" routerLink="/customers">Customers</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" routerLink="/products">Products</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" routerLink="/materials">Materials</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" routerLink="/vendors">Vendors</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" routerLink="/users">Users</a>
-              </div>
-      </li>
-      <li  *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
-          
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <!-- {{ _userService.getName()}} --> {{ userObj.name}}
+        <li *ngIf="_userService.isLoggedIn() && userObj.isAdmin" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-cog"></i>
+            Manage
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+            <a class="dropdown-item" routerLink="/customers"><i class="fas fa-address-card"></i>Customers</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/products"><i class="fas fa-dolly"></i>Products</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/materials"><i class="fas fa-qrcode"></i>Materials</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/vendors"><i class="fas fa-address-card"></i>Vendors</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/users"><i class="fas fa-users"></i>Users</a>
+          </div>
+        </li>
+        <li *ngIf="_userService.isLoggedIn()" routerLinkActive="active current" ngbDropdown class="nav-item dropdown">
+
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle"></i>
+            <!-- {{ _userService.getName()}} --> {{ userObj.name}}
           </a>
           <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1">
-              <!-- <div class="dropdown-divider"></div> -->
-              <a class="dropdown-item" routerLink="/accountdetails">Account details</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" routerLink (click)="logout()">Logout</a>
+            <!-- <div class="dropdown-divider"></div> -->
+            <a class="dropdown-item" routerLink="/accountdetails">
+              <i class="fas fa-info-circle"></i>
+              Account Info
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink (click)="logout()">
+              <i class="fas fa-sign-out-alt"></i>
+              Logout
+            </a>
           </div>
-  </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
