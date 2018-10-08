@@ -1,38 +1,50 @@
-<div class="card">
-    <div style="padding-left: 10px;" class="row ">
-        <div class="col center">
-            <!-- <form [formGroup]="changePasswordForm" > -->
-          <form  >
-             <div class="col-6 form-group">
-                <label for="name">Product Name</label>
-                <!-- <input  formControlName="current-password" id="password" type="password" class="form-control"> -->
-                 <input  id="name" type="text" class="form-control">
-             </div>
-             <div class="col-6 form-group">
-              <label for="rate">Rate</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">₹</span>
+<div class="container" style="margin-top: 3em; text-transform: uppercase; font-weight : 600; font-size : 0.75em">
+        <div class="card" style="padding: 1em; background-color: #33b5e5!important; color: whitesmoke">
+            Product Form
+        </div>
+    <div class="card" style="padding: 1em;">
+        <!-- <div style="padding-left: 10px;" class="row ">
+            <div class="col center"> -->
+                <!-- <form [formGroup]="changePasswordForm" > -->
+                
+                <form [formGroup]="productForm" (ngSubmit)="createProduct()">
+                    <div class="row">
+                            <div class="col-8 form-group">
+                                    <label for="name">Product Name</label>
+                                    <!-- <input  formControlName="current-password" id="password" type="password" class="form-control"> -->
+                                    <input id="name" formControlName= "name" type="text" class="form-control">
+                                </div>
+                                <div class="col-4 form-group">
+                                    <label for="rate">Rate</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">₹</span>
+                                        </div>
+            
+                                        <!-- <input formControlName="new-password" id="new-password" type="text" class="form-control"> -->
+                                        <input formControlName= "rate" id="rate" type="text" class="form-control">
+                                    </div>
+                                </div>
                     </div>
-                 
-                  <!-- <input formControlName="new-password" id="new-password" type="text" class="form-control"> -->
-                  <input  id="rate" type="text" class="form-control">
-                  <div class="input-group-append">
-                      <span class="input-group-text">.00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 form-group">
-              <label for="unit">Unit</label>
-              <!-- <input formControlName="confirm-password" id="confirm-password" type="text" class="form-control"> -->
-              <select class="form-control" id="exampleFormControlSelect1">
-                  <option>Kg</option>
-                  <option>Ton</option>
-                  <option>Litre</option>
-                </select>
-              </div>
-              <button class="btn btn-success" type="button">Save Product</button>
-            </form>
-    </div>
-    </div>
+                  
+                    <div class="row">
+                            <div class="col-6 form-group">
+                                    <label for="unit">Unit</label>
+                                    <!-- <input formControlName="confirm-password" id="confirm-password" type="text" class="form-control"> -->
+                                    <select formControlName= "unit" class="form-control" id="exampleFormControlSelect1">
+                                        <option>Kg</option>
+                                        <option>Ton</option>
+                                        <option>Litre</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 form-group" style="text-align: center;">
+                                        <button class="btn btn-primary" type="submit" style="margin-top: 2em; text-transform: uppercase; font-weight: 700; font-size: 1em">Save Product</button>
+                                </div>
+                                
+                    </div>
+                   
+                </form>
+            </div>
+        <!-- </div>
+    </div> -->
 </div>

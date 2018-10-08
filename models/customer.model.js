@@ -77,7 +77,9 @@ function validateCustomer(customer) {
         .max(50),
       addressline2: Joi.string()
         .min(5)
-        .max(50),
+        .max(50)
+        .allow(null)
+        .optional(),
       city: Joi.string()
         .min(3)
         .max(50),
@@ -90,6 +92,8 @@ function validateCustomer(customer) {
       country: Joi.string()
         .min(2)
         .max(50)
+        .allow(null)
+        .optional()
     }),
     alternateAddress: Joi.object().keys({
       addressline1: Joi.string()
@@ -110,20 +114,28 @@ function validateCustomer(customer) {
       country: Joi.string()
         .min(2)
         .max(50)
-    }),
+    }).allow(null).optional(),
     email: Joi.string()
       .min(8)
       .max(255)
-      .email(),
+      .email()
+      .allow(null)
+      .optional(),
     gstin: Joi.string()
       .min(15)
-      .max(15),
+      .max(15)
+      .allow(null)
+      .optional(),
     primaryPhone: Joi.string()
       .min(10)
-      .max(13),
+      .max(13)
+      .allow(null)
+      .optional(),
     alternatePhone: Joi.string()
       .min(10)
       .max(13)
+      .allow(null)
+      .optional()
   };
   return Joi.validate(customer, schema);
 }

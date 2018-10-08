@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HttpModule } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
+import { FlashMessagesModule } from 'angular2-flash-messages'
 import { ProductComponent } from './components/product/product.component';
 import { OrderComponent } from './components/order/order.component';
 import { RecievableComponent } from './components/recievable/recievable.component';
@@ -42,9 +44,11 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    FlashMessagesModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'login', component: LoginFormComponent},

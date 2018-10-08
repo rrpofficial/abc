@@ -2,7 +2,18 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const orderSchema = new mongoose.Schema({
-    
+        customer : String,
+        product : String,
+        quantity : Number,
+        rate : Number,
+        discount : Number,
+        price : Number,
+        recievedDate : Date,
+        dispatchDate : Date,
+        dateDelivered : Date,
+        dueDate : Date,
+        paymentStatus : String
+       
 });
 
 function validateRecievable(recievable){
