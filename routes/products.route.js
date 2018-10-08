@@ -13,6 +13,9 @@ router.get('/', async(req, res)=>{
 
 
 router.get('/:id', async(req, res)=>{
+    const product = await Product
+    .findById(req.params.id);
+    res.send({'success' : true, data: product});
 });
 
 router.post('/', passport.authenticate('jwt', {session: false}), async(req, res)=>{
@@ -30,7 +33,20 @@ router.post('/', passport.authenticate('jwt', {session: false}), async(req, res)
 });
 
 router.put('/:id', passport.authenticate('jwt', {session: false}), async(req, res)=>{
-    
+    const { error } = validate(req.body);
+    if(error) return res.status(400).send({'sucess': false, 'message': error.details[0].message});
+    let product = await Product.findByIdAndUpdate(req.params.id, { name : req.body.name,
+        rate : req.body.rate,
+        unit : req.body.unit});
+    // if(!product) return res.status(400).send({'sucess': false, 'message' : 'Could not update the product'});
+    // product = new Product({
+    //     name : req.body.name,
+    //     rate : req.body.rate,
+    //     unit : req.body.unit
+    // });
+    // const result = await product.save();
+    console.log()
+    res.send({'success': true, 'response' : product});
 });
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), async(req, res)=>{

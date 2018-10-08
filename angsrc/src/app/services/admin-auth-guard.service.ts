@@ -15,10 +15,10 @@ export class AdminAuthGuard implements CanActivate {
     const token = localStorage.getItem('access_token');
     const decodedToken = this._userService.getDecodedJwtToken(token);
     const id = decodedToken._id;
-    console.log('token in Admin guard is '+token);
-    console.log('Name in Admin guard is '+decodedToken.name);
+    // console.log('token in Admin guard is '+token);
+    // console.log('Name in Admin guard is '+decodedToken.name);
     return this._userService.getUserById(id).pipe(map(user => {
-     console.log(user);
+    //  console.log(user);
      return user.isAdmin;
     }));
   }

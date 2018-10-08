@@ -5,20 +5,16 @@
         <div class="row">
           <div class="col-12">
             <!-- <div class="col-12"> <p>{{product.name}}</p> -->
-            <ng-content class="bs-card-item-name"></ng-content>
+            <ng-content select=".bs-card-item-name"></ng-content>
           </div>
           <div class="col-12">
             <!-- <p>Rate :  {{product.rate | currency : 'INR'}} per {{product.unit}}</p> -->
-            <ng-content class="bs-card-item-rate"></ng-content>
+            <ng-content select=".bs-card-item-rate"></ng-content>
           </div>
         </div>
       </div>
-      <div class="col my-auto">
-          <button type="button" class="btn btn-warning btn-block">Edit</button>
-      </div>
-      <div class="col my-auto">
-          <button type="button" class="btn btn-danger btn-block">Delete</button>
-      </div>
+          <ng-content select=".bs-card-item-edit"></ng-content>
+          <ng-content select=".bs-card-item-del"></ng-content>  
     </div>
   </div>
 </div>

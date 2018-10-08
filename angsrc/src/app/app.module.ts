@@ -70,7 +70,8 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
       { path : 'vendors', component : VendorComponent, canActivate: [AuthGuard, AdminAuthGuard]},
        { path : 'users/new', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
        { path : 'users/:id', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-      { path : 'users', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]}
+      { path : 'users', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+      // { path: '**', redirectTo: '' }
     ]),
     NgbModule.forRoot(),
   ],
