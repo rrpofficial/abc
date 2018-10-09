@@ -15,12 +15,13 @@
                 </ng-container>
                 <ng-container class="bs-card-item-edit">
                         <div class="col my-auto">
-                                <button type="button" class="btn btn-warning btn-block" [routerLink]="['/products/', product._id]">Edit</button>
+                                <button type="button" class="btn btn-warning btn-block" [routerLink]="['/products/', product._id]"><span><i class="fas fa-pen"></i></span> Edit</button>
                         </div>
                 </ng-container>
                 <ng-container class="bs-card-item-del">
                         <div class="col my-auto">
-                                <button type="button" class="btn btn-danger btn-block">Delete</button>
+                                <!-- <button type="button" class="btn btn-danger btn-block" (click)='removeProduct(product._id)' >Delete</button> -->
+                                <app-modal [item]="product" [itemType]="'product'"></app-modal>
                         </div>
                 </ng-container>
 

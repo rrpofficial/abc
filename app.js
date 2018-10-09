@@ -6,7 +6,7 @@ const cors = require("cors");
 app.use(express.json());
 var corsOptions = {
   origin: "*",
-  methods: "GET,HEAD,PUT,POST",
+  methods: "GET,HEAD,PUT,POST,DELETE",
   // "preflightContinue": false,
   allowedHeaders: ["Content-Type", "Authorization", "x-auth-token", "ETag"],
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204

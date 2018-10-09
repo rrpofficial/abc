@@ -51,4 +51,14 @@ export class ProductService {
     return this._http.put('http://localhost:3000/api/products/'+id, body, { headers: headers})
       .pipe(map(res => res));
   }
+
+  removeProduct(id){
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+    console.log('*** Prod Service method  remove is called for'+id );
+    return this._http.delete('http://localhost:3000/api/products/'+id, {headers : headers}).pipe(map(res=>res));
+  }
 }

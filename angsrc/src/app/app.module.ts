@@ -24,6 +24,7 @@ import { AccountdetailComponent } from './components/accountdetail/accountdetail
 import { ProductFormComponent } from './components/productform/productform.component';
 import { BsCardComponent } from './recomponents/bs-card/bs-card.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { ModalComponent } from './recomponents/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +41,11 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
     UserComponent,
     AccountdetailComponent,
     ProductFormComponent,
-    BsCardComponent
+    BsCardComponent,
+    ModalComponent,
+    // NgbdModalConfirmAutofocus
   ],
+  // entryComponents: [ NgbdModalConfirmAutofocus],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -71,7 +75,7 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
        { path : 'users/new', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
        { path : 'users/:id', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path : 'users', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-      // { path: '**', redirectTo: '' }
+      { path: '**', redirectTo: '' }
     ]),
     NgbModule.forRoot(),
   ],

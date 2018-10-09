@@ -45,12 +45,20 @@ router.put('/:id', passport.authenticate('jwt', {session: false}), async(req, re
     //     unit : req.body.unit
     // });
     // const result = await product.save();
-    console.log()
+    // console.log()
     res.send({'success': true, 'response' : product});
 });
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), async(req, res)=>{
-    
+    // const { error } = validate(req.body);
+    // if(error) return res.status(400).send({'sucess': false, 'message': error.details[0].message});
+    let result = await Product.findByIdAndRemove(req.params.id);
+    if(result){
+        res.send({'success': true, 'response' : result});
+    }else{
+        res.send({'success': fail, 'msg':'Could not Delete', 'response' : result});
+    }
+
 });
 
 module.exports = router;
