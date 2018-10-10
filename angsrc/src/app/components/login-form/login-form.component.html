@@ -2,12 +2,14 @@
     <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-group">
           <label for="email">Email</label>
-          <input formControlName="email" id="email" type="email" class="form-control fa" placeholder="&#xF0E0;">
+          <input formControlName="email" id="email" type="email" class="form-control" placeholder="Enter your email">
+          <span class="fa fa-envelope formIcon"></span>
           <div *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid" class="alert alert-danger">Email is Required</div>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input formControlName="password" id="password" type="password" class="form-control fa" placeholder="&#Xf084;" >
+            <input formControlName="password" id="password" type="password" class="form-control" placeholder="Enter your password" >
+            <span class="fa fa-lock formIcon"></span>
             <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid" class="alert alert-danger">Password is requried</div>
          </div>
          <button class="btn btn-primary" type="submit">Login</button>

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
+import { HttpClient } from "@angular/common/http";
 // import * as jwt_decode from 'jwt-decode';
 import { map } from "rxjs/operators";
 
@@ -15,14 +15,14 @@ export class UserService {
   private baseUrl: string = "http://localhost:3000/api";
   jwtHelper: JwtHelperService = new JwtHelperService();
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   userAuthentication(email, password) {
     return this.http
       .post(this.baseUrl + "/auth", { email: email, password: password })
       .pipe(
         map(response => {
-          return response.json();
+          return response;
         })
       );
   }
@@ -55,7 +55,7 @@ export class UserService {
   getUserById(id: string) {
     return this.http
       .get(this.baseUrl + "/users/" + id)
-      .pipe(map(response => response.json()));
+      .pipe(map(response => response));
   }
 
   getCurrentUser() {
@@ -70,6 +70,6 @@ export class UserService {
     return user;
   }
   getAllUsers(){
-    return this.http.get(this.baseUrl+'/users').pipe(map(res => res.json()));
+    return this.http.get(this.baseUrl+'/users').pipe(map(res => res));
   }
 }

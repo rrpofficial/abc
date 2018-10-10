@@ -28,8 +28,8 @@ export class LoginFormComponent  {
    
     this.userService.userAuthentication(formVal.email, formVal.password)
     .subscribe((result)=>{
-      if(result.success){
-        this.userService.saveUserData(result.token);
+      if(result['success']){
+        this.userService.saveUserData(result['token']);
       
         this.router.navigate(['']);
       }
@@ -40,3 +40,4 @@ export class LoginFormComponent  {
    }
 
 }
+  

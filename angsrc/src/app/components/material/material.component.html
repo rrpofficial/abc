@@ -13,5 +13,17 @@
     <ng-container class="bs-card-item-rate">
       <p>Rate : {{material.rate | currency : 'INR'}} per {{material.unit}}
     </ng-container>
+    <ng-container class="bs-card-item-edit">
+      <div class="col my-auto">
+        <button type="button" class="btn btn-warning btn-block" [routerLink]="['/materials/', material._id]"><span><i
+              class="fas fa-pen"></i></span> Edit</button>
+      </div>
+    </ng-container>
+    <ng-container class="bs-card-item-del">
+      <div class="col my-auto">
+        <!-- <button type="button" class="btn btn-danger btn-block" (click)='removeProduct(product._id)' >Delete</button> -->
+        <app-modal [item]="material" [itemType]="'material'"></app-modal>
+      </div>
+    </ng-container>
   </app-bs-card>
 </div>

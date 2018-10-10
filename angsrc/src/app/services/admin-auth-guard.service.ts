@@ -19,7 +19,7 @@ export class AdminAuthGuard implements CanActivate {
     // console.log('Name in Admin guard is '+decodedToken.name);
     return this._userService.getUserById(id).pipe(map(user => {
     //  console.log(user);
-     return user.isAdmin;
+     return user['isAdmin'];
     }));
   }
 }

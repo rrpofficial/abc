@@ -25,6 +25,10 @@ import { ProductFormComponent } from './components/productform/productform.compo
 import { BsCardComponent } from './recomponents/bs-card/bs-card.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { ModalComponent } from './recomponents/modal/modal.component';
+import { CustomerFormComponent } from './components/customer-form/customer-form.component';
+import { VendorFormComponent } from './components/vendor-form/vendor-form.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { MaterialFormComponent } from './components/material-form/material-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +47,10 @@ import { ModalComponent } from './recomponents/modal/modal.component';
     ProductFormComponent,
     BsCardComponent,
     ModalComponent,
+    CustomerFormComponent,
+    VendorFormComponent,
+    UserFormComponent,
+    MaterialFormComponent,
     // NgbdModalConfirmAutofocus
   ],
   // entryComponents: [ NgbdModalConfirmAutofocus],
@@ -60,20 +68,20 @@ import { ModalComponent } from './recomponents/modal/modal.component';
       { path : 'payables', component : PayableComponent, canActivate: [AuthGuard]},
       { path : 'recievables', component : RecievableComponent, canActivate: [AuthGuard]},
       { path : 'accountdetails', component : AccountdetailComponent, canActivate: [AuthGuard]},
-       { path : 'materials/new', component : MaterialComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-       { path : 'materials/:id', component : MaterialComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+       { path : 'materials/new', component : MaterialFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+       { path : 'materials/:id', component : MaterialFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path : 'materials', component : MaterialComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path : 'products/new', component : ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path : 'products/:id', component : ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path : 'products', component : ProductComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-       { path : 'customers/new', component : CustomerComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-       { path : 'customers/:id', component : CustomerComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+       { path : 'customers/new', component : CustomerFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+       { path : 'customers/:id', component : CustomerFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path : 'customers', component : CustomerComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-       { path : 'vendors/new', component : VendorComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-       { path : 'vendors/:id', component : VendorComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+       { path : 'vendors/new', component : VendorFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+       { path : 'vendors/:id', component : VendorFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path : 'vendors', component : VendorComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-       { path : 'users/new', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-       { path : 'users/:id', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+       { path : 'users/new', component : UserFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+       { path : 'users/:id', component : UserFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path : 'users', component : UserComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       { path: '**', redirectTo: '' }
     ]),

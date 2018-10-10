@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -7,9 +7,9 @@ import { map } from 'rxjs/operators';
 })
 export class CustomerService {
 
-  constructor(private _http: Http) { }
+  constructor(private _http: HttpClient) { }
 
   getCustomers(){
-    return this._http.get('http://localhost:3000/api/customers').pipe(map(response=> response.json()));
+    return this._http.get('http://localhost:3000/api/customers').pipe(map(response=> response));
   }
 }

@@ -3,7 +3,7 @@
     <input type="text" class="form-control" placeholder="Search Vendor" aria-label="Search Vendor">
   </div>
   <p>
-    <a routerLink="" class="btn btn-primary">New Vendor</a>
+    <a routerLink="/vendors/new" class="btn btn-primary">New Vendor</a>
   </p>
   <app-bs-card *ngFor="let vendor of vendors">
     <ng-container class="bs-card-item-name">
@@ -11,6 +11,18 @@
     </ng-container>
     <ng-container class="bs-card-item-rate">
       <p>{{vendor.gstin}}</p>
+    </ng-container>
+    <ng-container class="bs-card-item-edit">
+      <div class="col my-auto">
+        <button type="button" class="btn btn-warning btn-block" [routerLink]="['/vendors/', vendor._id]"><span><i
+              class="fas fa-pen"></i></span> Edit</button>
+      </div>
+    </ng-container>
+    <ng-container class="bs-card-item-del">
+      <div class="col my-auto">
+        <!-- <button type="button" class="btn btn-danger btn-block" (click)='removeProduct(product._id)' >Delete</button> -->
+        <app-modal [item]="vendor" [itemType]="'vendor'"></app-modal>
+      </div>
     </ng-container>
   </app-bs-card>
 </div>

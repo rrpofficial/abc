@@ -1,15 +1,67 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+// import { HttpClient } from '@angular/http';
 import { map } from 'rxjs/operators';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MaterialService {
 
-  constructor(private _http: Http) { }
+  constructor(private _http: HttpClient) { }
   
   getAllMaterials(){
-    return this._http.get('http://localhost:3000/api/materials').pipe(map(res=> res.json()));
+    const token = localStorage.getItem('access_token');
+    if(token){
+      const headers = new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization' : 'Bearer '+token
+      });
+    return this._http.get('http://localhost:3000/api/materials', {headers : headers}).pipe(map(res=> res));
+  }
+} 
+  getMaterialById(id){
+    const token = localStorage.getItem('access_token');
+    if(token){
+      const headers = new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization' : 'Bearer '+token
+      })
+    return this._http.get('http://localhost:3000/api/materials/'+id, {headers : headers}).pipe(map(res=> res));
+  }
+  }
+  createMaterial(name, rate, unit){
+    const token = localStorage.getItem('access_token');
+    if(token){
+      const headers = new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization' : 'Bearer '+token
+      });
+      const body = {
+        name : name,
+        rate : rate,
+        unit : unit
+      }
+      return this._http.post('http://localhost:3000/api/materials/', body, {headers : headers}).pipe(map(res => res));
+    }
+  }
+  updateMaterial(id, name, rate, unit){
+    const token = localStorage.getItem('access_token');
+    if(token){
+      const headers = new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization' : 'Bearer '+token
+      })
+      const body = {
+        name : name,
+        rate : rate,
+        unit : unit
+      }
+      return this._http.put('http://localhost:3000/api/materials/'+id, body, { headers : headers}).pipe(map(res=> res));
+    }
+    
+  }
+  removeMaterial(id){
+    return this._http.delete('http://localhost:3000/api/materials'+id).pipe(map(res=> res));
   }
 }

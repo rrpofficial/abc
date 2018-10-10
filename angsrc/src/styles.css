@@ -1,12 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Fahkwang');
 
-.body{
+body{
+  /* font-family: 'Montserrat', sans-serif; */
   font-family: 'Fahkwang', sans-serif;
+  font-size : 1em;
+  font-weight: 700;
 }
 .btn-primary{
   color: whitesmoke;
   background-color: #33b5e5;
   border-color: #33b5e5;
+  font-size: .9em;
+  font-weight: 600;
+}
+.btn-primary:hover{
+  color: whitesmoke;
+  background-color: #0ba1d2;
+  border-color: #0ba1d2;
 }
