@@ -30,3 +30,12 @@
 .fas{
     padding: 0.2em;
 }
+.navbar-brand{
+    position: relative;
+    width: 170px;
+    left: 15px;
+    background-size: contain;
+}
+.navbar-brand > img{
+    height: 30px;
+}

@@ -30,6 +30,7 @@ import { VendorFormComponent } from './components/vendor-form/vendor-form.compon
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { MaterialFormComponent } from './components/material-form/material-form.component';
 import {AppRoutesModule} from './app-routes.module';
+
 @NgModule({
   declarations: [
     AppComponent,
