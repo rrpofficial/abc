@@ -52,7 +52,13 @@ router.put('/:id', passport.authenticate('jwt', {session: false}), async(req, re
 });
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), async(req, res)=>{
-    
+    let result = await Material.findByIdAndRemove(req.params.id);
+    if(result){
+        res.send({'success': true, 'response' : result});
+    }else{
+        res.send({'success': fail, 'msg':'Could not Delete', 'response' : result});
+    }
+
 });
 
 module.exports = router;

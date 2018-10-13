@@ -17,7 +17,7 @@ export class MaterialService {
         'Content-Type' : 'application/json',
         'Authorization' : 'Bearer '+token
       });
-    return this._http.get('http://localhost:3000/api/materials', {headers : headers}).pipe(map(res=> res));
+    return this._http.get('http://localhost:3000/api/materials/', {headers : headers}).pipe(map(res=> res));
   }
 } 
   getMaterialById(id){
@@ -62,6 +62,12 @@ export class MaterialService {
     
   }
   removeMaterial(id){
-    return this._http.delete('http://localhost:3000/api/materials'+id).pipe(map(res=> res));
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+    console.log('*** Material Service method  remove is called for'+id );
+    return this._http.delete('http://localhost:3000/api/materials/'+id, {headers : headers}).pipe(map(res=> res));
   }
 }

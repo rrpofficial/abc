@@ -1,3 +1,34 @@
-<p>
-  user-form works!
-</p>
+<div class="container">
+    <div class="card">  
+      <div class="card-header">
+        Customer Form
+      </div>
+      <div class="card-body">
+          <form [formGroup]="userForm" (ngSubmit)="submitUserForm()">
+              <div class="row">
+                <div class="col-6 form-group">
+                  <label for="name">Name</label>
+                  <input id="name" formControlName="name" type="text" class="form-control">
+                </div>
+                <div class="col-6 form-group">
+                  <label for="email">Email</label>
+                    <input formControlName="email" id="email" type="text" class="form-control">
+                </div>
+              </div>
+        
+              <div class="row">
+                <div class="col-6 form-group">
+                  <label for="isAdmin">Is Admin</label>
+                  <select formControlName="isAdmin" class="form-control" id="exampleFormControlSelect1">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+                <div class="col-6 form-group" style="text-align: center;">
+                  <button class="btn btn-primary" type="submit">Save User</button>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>

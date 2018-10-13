@@ -1,3 +1,103 @@
-<p>
-  vendor-form works!
-</p>
+<div class="container">
+    <div class="card">  
+      <div class="card-header">
+        Vendor Form
+      </div>
+      <div class="card-body">
+          <form [formGroup]="vendorForm" (ngSubmit)="submitVendorForm()">
+              <div class="row">
+                <div class="col-6 form-group">
+                  <label for="name">Vendor Name</label>
+                  <input id="name" formControlName="name" type="text" class="form-control" placeholder="Vendor name">
+                </div>
+    
+                <div class="col-6 form-group">
+                  <label for="email">Email</label>
+                    <input formControlName="email" id="email" type="text" class="form-control" placeholder="Email">
+                </div>
+              </div>
+              <h5 class="abc-heading-5">Primary Address</h5>
+              <div class="row">
+                  <div class="col-md form-group">
+                    <label for="pAddressLine1">Address Line 1</label>
+                    <input type="text" id="pAddressLine1" class="form-control" placeholder="P.O. Box or Plot Number or Apartment Number">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-8 form-group">
+                      <label for="pAddressLine2">Address Line 2</label>
+                      <input type="text" id="pAddressLine2" class="form-control" placeholder="Locality or Area or Landmark">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" placeholder="City or Town">
+                      </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 form-group">
+                      <label for="state">State</label>
+                      <input type="text" id="state" class="form-control" placeholder="State">
+                  </div>
+                   <div class="col form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" class="form-control" placeholder="Country">
+                 </div>
+                <div class="col form-group">
+                          <label for="pincode">Pincode</label>
+                          <input type="text" id="pincode" class="form-control" placeholder="Pincode">
+                        </div>
+              </div>
+              
+              <h5 class="abc-heading-5">Alternate Address</h5>
+              <div class="row">
+                  <div class="col-md form-group">
+                    <label for="aAddressLine1">Address Line 1</label>
+                    <input type="text" id="aAddressLine1" class="form-control" placeholder="P.O. Box or Plot Number or Apartment Number">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-8 form-group">
+                      <label for="aAddressLine2">Address Line 2</label>
+                      <input type="text" id="aAddressLine2" class="form-control" placeholder="Locality or Area or Landmark">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label for="aCity">City</label>
+                        <input type="text" id="aCity" class="form-control" placeholder="City or Town">
+                      </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 form-group">
+                      <label for="aState">State</label>
+                      <input type="text" id="aState" class="form-control" placeholder="State">
+                  </div>
+                   <div class="col form-group">
+                        <label for="aCountry">Country</label>
+                        <input type="text" id="aCountry" class="form-control" placeholder="Country">
+                 </div>
+                <div class="col form-group">
+                          <label for="aPincode">Pincode</label>
+                          <input type="text" id="aPincode" class="form-control" placeholder="Pincode">
+                        </div>
+              </div>
+              <h5 class="abc-heading-5">Contact Number</h5>
+              <div class="row">
+
+                <div class="col-md-6 form-group">
+                  <label for="primaryPhone">Primary Phone</label>
+                  <input formControlName="primaryPhone" id="primaryPhone" type="text" class="form-control">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="secondaryPhone">Secondary Phone</label>
+                    <input formControlName="secondaryPhone" id="secondaryPhone" type="text" class="form-control">
+                  </div>
+                
+              </div>
+              <div class="row">
+                  <div class="col-md-6 form-group">
+                      <button class="btn btn-primary" type="submit">Save Vendor</button>
+                    </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>

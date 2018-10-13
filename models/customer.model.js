@@ -96,24 +96,12 @@ function validateCustomer(customer) {
         .optional()
     }),
     alternateAddress: Joi.object().keys({
-      addressline1: Joi.string()
-        .min(10)
-        .max(50),
-      addressline2: Joi.string()
-        .min(5)
-        .max(50),
-      city: Joi.string()
-        .min(3)
-        .max(50),
-      pincode: Joi.string()
-        .min(6)
-        .max(6),
-      state: Joi.string()
-        .min(2)
-        .max(50),
-      country: Joi.string()
-        .min(2)
-        .max(50)
+      addressline1: Joi.string().allow(null).optional(),
+      addressline2: Joi.string().allow(null).optional(),
+      city: Joi.string().allow(null).optional(),
+      pincode: Joi.string().allow(null).optional(),
+      state: Joi.string().allow(null).optional(),
+      country: Joi.string().allow(null).optional()
     }).allow(null).optional(),
     email: Joi.string()
       .min(8)

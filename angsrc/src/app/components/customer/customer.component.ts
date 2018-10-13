@@ -14,7 +14,7 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {
     this._customerService.getCustomers().subscribe( (data) =>{
       this.customers = data;
-      console.log(`customers : ${JSON.stringify(this.customers)}`);
+      // console.log(`customers : ${JSON.stringify(this.customers)}`);
     });
     
   }

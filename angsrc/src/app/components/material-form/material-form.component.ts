@@ -10,7 +10,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./material-form.component.css']
 })
 export class MaterialFormComponent implements OnInit {
-  material : {}
+  material = {};
   materialForm : FormGroup = new FormGroup({
     name : new FormControl('', Validators.required),
     rate : new FormControl('', Validators.required),
@@ -22,7 +22,7 @@ export class MaterialFormComponent implements OnInit {
     private _router : Router,
     private _route : ActivatedRoute,
     private _flashMsgService : FlashMessagesService
-    ) { }
+    ) {}
 
   ngOnInit() {
     const id = this._route.snapshot.paramMap.get('id');

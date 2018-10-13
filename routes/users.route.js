@@ -27,7 +27,6 @@ router.get('/:id', async (req, res)=>{
 router.post('/', async (req, res)=>{
     const {error} = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);
-    
     let user = await User.findOne({'email' : req.body.email});
     if(user) return res.status(400).send('An account already exists with this email id');
 
@@ -40,8 +39,6 @@ router.post('/', async (req, res)=>{
     user.password = await getEncryptedPwd(req.body.password);
     result = await user.save();
     res.send(_.pick(result, ['_id', 'name', 'email', 'isAdmin']));
-    
-     
 });
 
 module.exports = router;

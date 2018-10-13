@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 // import * as jwt_decode from 'jwt-decode';
 import { map } from "rxjs/operators";
 
@@ -71,5 +71,16 @@ export class UserService {
   }
   getAllUsers(){
     return this.http.get(this.baseUrl+'/users').pipe(map(res => res));
+  }
+
+  updateUser(id , body){
+    const token = localStorage.getItem('access_token');
+    if(token){  
+      const headers = new HttpHeaders({
+        'Content-type' : 'application/json',
+        'Authorization' : 'Bearer '+token,
+      });
+      return this.http.put(this.baseUrl+'/users/'+id,body,{headers : headers}).pipe(map(res=>res));
+    }
   }
 }
