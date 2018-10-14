@@ -93,6 +93,10 @@ export class VendorFormComponent implements OnInit {
       };
       this._vendorService.editVendor<Vendor>(id, vendor).subscribe(data => {
         this.vendor = data;
+      }, error => {
+          console.log(error);
+          this._flashMsgService.show(error.error, { cssClass : 'alert-danger', timeout : 3000});
+      
       });
       //edit Vendor
     }else{
