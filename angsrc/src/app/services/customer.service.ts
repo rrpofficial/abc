@@ -56,7 +56,7 @@ export interface Customer{
     email,
     gstin,
     primaryPhone,
-    secondaryPhone,
+    alternatePhone,
     primaryAddress : {
       addressline1,
       addressline2,

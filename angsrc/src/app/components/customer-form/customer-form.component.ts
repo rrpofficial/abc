@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService , Customer } from '../../services/customer.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { asTextData } from '@angular/core/src/view';
 // import { CustomerComponent } from '../customer/customer.component';
 
@@ -30,11 +30,12 @@ export class CustomerFormComponent implements OnInit {
       aState: new FormControl(''),
       aCountry: new FormControl(''),
       primaryPhone: new FormControl(''),
-      secondaryPhone: new FormControl('')
+      alternatePhone: new FormControl('')
     });
 
   constructor(
     private _customerService : CustomerService,
+    private _router : Router,
     private _route : ActivatedRoute,
     private _flashMsgService : FlashMessagesService
   ) { }
@@ -61,7 +62,7 @@ export class CustomerFormComponent implements OnInit {
         const aState = data.alternateAddress.state;
         const aCountry = data.alternateAddress.country;
         const primaryPhone = data.primaryPhone;
-        const secondaryPhone = data.secondaryPhone;
+        const alternatePhone = data.alternatePhone;
         
         // console.log('adress '+pAddressline1);
         // console.table(JSON.stringify(data));
@@ -81,7 +82,7 @@ export class CustomerFormComponent implements OnInit {
         this.customerForm.get('aState').setValue(aState);
         this.customerForm.get('aCountry').setValue(aCountry);
         this.customerForm.get('primaryPhone').setValue(primaryPhone);
-        this.customerForm.get('secondaryPhone').setValue(secondaryPhone);
+        this.customerForm.get('alternatePhone').setValue(alternatePhone);
       });
       
     }
@@ -112,12 +113,20 @@ export class CustomerFormComponent implements OnInit {
           country : this.customerForm.get('aCountry').value
         },
         primaryPhone : this.customerForm.get('primaryPhone').value,
-        secondaryPhone : this.customerForm.get('secondaryPhone').value,
+        alternatePhone : this.customerForm.get('alternatePhone').value,
       }
 
       // console.log('comp form customer ', customer);
       this._customerService.editCustomer<Customer>(id, customer).subscribe((data)=>{
           this.customer = data;
+          if(this.customer) {
+            this._flashMsgService.show('Customer has been edited', {cssClass : 'alert-success', timeout : 3000});
+            this._router.navigate(['customers']);
+          }else{
+            if(this.customer) {
+              this._flashMsgService.show('Customer could not be modified', {cssClass : 'alert-danger', timeout : 3000});
+            }
+          }
       });
       
     }else{
@@ -143,10 +152,18 @@ export class CustomerFormComponent implements OnInit {
           country : this.customerForm.get('aCountry').value
         },
         primaryPhone : this.customerForm.get('primaryPhone').value,
-        secondaryPhone : this.customerForm.get('secondaryPhone').value,
+        alternatePhone : this.customerForm.get('alternatePhone').value,
       }
       this._customerService.createCustomer<Customer>(customer).subscribe((data)=>{
           this.customer = data;
+          if(this.customer) {
+            this._flashMsgService.show('Customer has been created', {cssClass : 'alert-success', timeout : 3000});
+            this._router.navigate(['customers']);
+          }else{
+            if(this.customer) {
+              this._flashMsgService.show('Customer could not be created', {cssClass : 'alert-danger', timeout : 3000});
+            }
+          }
       });
     }
   }

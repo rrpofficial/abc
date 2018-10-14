@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+
 const { Vendor , validate } = require ('../models/vendor.model');
 
 router.get('/', async (req, res)=> {
@@ -12,6 +13,11 @@ router.get('/', async (req, res)=> {
 });
 
 router.get('/:id', async(req, res)=>{
+    const vendor = await Vendor
+    .findById(req.params.id)
+    .sort({'name' : 1});
+    // console.log(vendor);
+    res.send(vendor);
 });
 
 // router.post('/', passport.authenticate('jwt', {session: false}), async(req, res)=>{
@@ -35,12 +41,36 @@ router.get('/:id', async(req, res)=>{
 });
 
 router.put('/:id', passport.authenticate('jwt', {session: false}), async(req, res)=>{
-    
+    const { error } = validate(req.body);
+    if(error) return res.status(400).send(error.details[0].message);
+    const result = await Vendor.findOneAndUpdate({_id :req.params.id}, {
+        name : req.body.name,
+        email : req.body.email,
+        gstin : req.body.gstin,
+        primaryPhone : req.body.primaryPhone,
+        secondaryPhone : req.body.secondaryPhone,
+        primaryAddress : {
+          addressline1 : req.body.primaryAddress.addressline1,
+          addressline2 : req.body.primaryAddress.addressline2,
+          city : req.body.primaryAddress.city,
+          pincode : req.body.primaryAddress.pincode,
+          state : req.body.primaryAddress.state,
+          country : req.body.primaryAddress.country,
+        },
+        alternateAddress : {
+          addressline1 : req.body.alternateAddress.addressline1,
+          addressline2 : req.body.alternateAddress.addressline2,
+          city : req.body.alternateAddress.city,
+          pincode : req.body.alternateAddress.pincode,
+          state : req.body.alternateAddress.state,
+          country : req.body.alternateAddress.country
+        }
+    }, { new : true});
+    res.send(result);
 });
 
 router.delete('/:id', passport.authenticate('jwt', {session: false}), async(req, res)=>{
     
 });
-
 
 module.exports = router;

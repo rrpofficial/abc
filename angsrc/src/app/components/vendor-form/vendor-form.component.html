@@ -10,73 +10,78 @@
                   <label for="name">Vendor Name</label>
                   <input id="name" formControlName="name" type="text" class="form-control" placeholder="Vendor name">
                 </div>
-    
                 <div class="col-6 form-group">
-                  <label for="email">Email</label>
-                    <input formControlName="email" id="email" type="text" class="form-control" placeholder="Email">
+                  <label for="gstin">GSTIN</label>
+                    <input formControlName="gstin" id="gstin" type="text" class="form-control" placeholder="Email">
                 </div>
               </div>
+              <div class="row">
+                 <div class="col-6 form-group">
+                    <label for="email">Email</label>
+                      <input formControlName="email" id="email" type="text" class="form-control" placeholder="Email">
+                  </div>
+                </div>
               <h5 class="abc-heading-5">Primary Address</h5>
               <div class="row">
                   <div class="col-md form-group">
-                    <label for="pAddressLine1">Address Line 1</label>
-                    <input type="text" id="pAddressLine1" class="form-control" placeholder="P.O. Box or Plot Number or Apartment Number">
+                    <label for="pAddressline1">Address Line 1</label>
+                    <input type="text" formControlName="pAddressline1" id="pAddressline1" class="form-control" placeholder="P.O. Box or Plot Number or Apartment Number">
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-8 form-group">
-                      <label for="pAddressLine2">Address Line 2</label>
-                      <input type="text" id="pAddressLine2" class="form-control" placeholder="Locality or Area or Landmark">
+                      <label for="pAddressline2">Address Line 2</label>
+                      <input type="text" formControlName="pAddressline2" id="pAddressline2" class="form-control" placeholder="Locality or Area or Landmark">
                     </div>
                     <div class="col-md-4 form-group">
-                        <label for="city">City</label>
-                        <input type="text" id="city" class="form-control" placeholder="City or Town">
+                        <label for="pCity">City</label>
+                        <input type="text" formControlName="pCity" id="pCity" class="form-control" placeholder="City or Town">
                       </div>
               </div>
               <div class="row">
                   <div class="col-md-6 form-group">
-                      <label for="state">State</label>
-                      <input type="text" id="state" class="form-control" placeholder="State">
+                      <label for="pState">State</label>
+                      <input type="text" formControlName="pState" id="pState" class="form-control" placeholder="State">
                   </div>
                    <div class="col form-group">
-                        <label for="country">Country</label>
-                        <input type="text" id="country" class="form-control" placeholder="Country">
+                        <label for="pCountry">Country</label>
+                        <input type="text" formControlName="pCountry" id="pCountry" class="form-control" placeholder="Country">
                  </div>
                 <div class="col form-group">
-                          <label for="pincode">Pincode</label>
-                          <input type="text" id="pincode" class="form-control" placeholder="Pincode">
+                          <label for="pPincode">Pincode</label>
+                          <input type="text" formControlName="pPincode" id="pPincode" class="form-control" placeholder="Pincode">
                         </div>
               </div>
               
               <h5 class="abc-heading-5">Alternate Address</h5>
               <div class="row">
                   <div class="col-md form-group">
-                    <label for="aAddressLine1">Address Line 1</label>
-                    <input type="text" id="aAddressLine1" class="form-control" placeholder="P.O. Box or Plot Number or Apartment Number">
+                    <label for="aAddressline1">Address Line 1</label>
+                    <input type="text" formControlName="aAddressline1" id="aAddressline1" class="form-control" placeholder="P.O. Box or Plot Number or Apartment Number">
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-8 form-group">
-                      <label for="aAddressLine2">Address Line 2</label>
-                      <input type="text" id="aAddressLine2" class="form-control" placeholder="Locality or Area or Landmark">
+                      <label for="aAddressline2">Address Line 2</label>
+                      <input type="text" formControlName="aAddressline2" id="aAddressline2" class="form-control" placeholder="Locality or Area or Landmark">
                     </div>
                     <div class="col-md-4 form-group">
                         <label for="aCity">City</label>
-                        <input type="text" id="aCity" class="form-control" placeholder="City or Town">
+                        <input type="text"formControlName="aCity" id="aCity" class="form-control" placeholder="City or Town">
                       </div>
               </div>
               <div class="row">
                   <div class="col-md-6 form-group">
                       <label for="aState">State</label>
-                      <input type="text" id="aState" class="form-control" placeholder="State">
+                      <input type="text" formControlName="aState" id="aState" class="form-control" placeholder="State">
                   </div>
                    <div class="col form-group">
                         <label for="aCountry">Country</label>
-                        <input type="text" id="aCountry" class="form-control" placeholder="Country">
+                        <input type="text"  formControlName="aCountry" id="aCountry" class="form-control" placeholder="Country">
                  </div>
                 <div class="col form-group">
                           <label for="aPincode">Pincode</label>
-                          <input type="text" id="aPincode" class="form-control" placeholder="Pincode">
+                          <input type="text" formControlName="aPincode" id="aPincode" class="form-control" placeholder="Pincode">
                         </div>
               </div>
               <h5 class="abc-heading-5">Contact Number</h5>
@@ -87,8 +92,8 @@
                   <input formControlName="primaryPhone" id="primaryPhone" type="text" class="form-control">
                 </div>
                 <div class="col-md-6 form-group">
-                    <label for="secondaryPhone">Secondary Phone</label>
-                    <input formControlName="secondaryPhone" id="secondaryPhone" type="text" class="form-control">
+                    <label for="alternatePhone">Alternate Phone</label>
+                    <input formControlName="alternatePhone" id="alternatePhone" type="text" class="form-control">
                   </div>
                 
               </div>
