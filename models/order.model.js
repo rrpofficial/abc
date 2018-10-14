@@ -2,17 +2,26 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const orderSchema = new mongoose.Schema({
-        customer : String,
-        product : String,
         quantity : Number,
-        rate : Number,
         discount : Number,
+        finalRate : Number,
         price : Number,
         recievedDate : Date,
-        dispatchDate : Date,
-        dateDelivered : Date,
+        dispatchedDate : Date,
+        deliveredDate : Date,
         dueDate : Date,
-        paymentStatus : String
+        customer : {
+            type :  mongoose.Schema.Types.ObjectId,
+            ref : 'Customer'
+          },
+        product : {
+              type :  mongoose.Schema.Types.ObjectId,
+              ref : 'Product'
+            },
+        recievables : {
+            type : mongoose.Schema.Types.ObjectId,
+            ref = 'Recievable'
+        }
        
 });
 
