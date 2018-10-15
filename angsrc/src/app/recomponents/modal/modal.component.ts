@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ProductService } from '../../services/product.service';
 import { ModalConfirmService } from '../../services/modal-confirm.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class ModalComponent implements OnInit {
   constructor(private _modalService: NgbModal, 
     private _modalConfirmService : ModalConfirmService,
-    private _flashMsgService : FlashMessagesService,
+    private _notifierService : NotifierService,
     private _router: Router) {}
   closeResult;
   @Input('item') item : Input;
@@ -33,12 +33,12 @@ export class ModalComponent implements OnInit {
         const msg = res;
         console.log(res);
         if(res['response']){
-          this._flashMsgService.show(type+' has been deleted', {cssClass:'alert-success', timeout : 3000});
+          this._notifierService.notify('warning', type+' has been deleted');
           setTimeout(()=>{
             this._router.navigate([navUrl]);
           }, 3000);
         }else{
-          this._flashMsgService.show('Could not delete the '+type, {cssClass:'alert-danger', timeout : 3000});
+          this._notifierService.notify('error', 'Could not delete the '+type);
         }
         
       });

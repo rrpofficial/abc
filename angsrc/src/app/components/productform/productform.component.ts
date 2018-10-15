@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-productform',
@@ -20,7 +20,7 @@ export class ProductFormComponent implements OnInit {
   constructor(
     private _prodService: ProductService,
     private _router: Router,
-    private _flashMesgService: FlashMessagesService,
+    private _notifierService : NotifierService,
     private _route: ActivatedRoute,
   ) { }
 
@@ -34,11 +34,12 @@ export class ProductFormComponent implements OnInit {
       this._prodService.createProduct(formVal.name, formVal.rate, formVal.unit).subscribe((data) => {
         console.log(data['success']);
         if (data['success']) {
-          this._flashMesgService.show('Product ' + data['response'].name + ' has been successfully created', { cssClass: 'alert-success', timeout: 3000 });
+          this._notifierService.notify('success','Product ' + data['response'].name + ' has been successfully created');
           this._router.navigate(['products']);
         }
         else {
-          this._flashMesgService.show('Unable to create the product', { cssClass: 'alert-danger', timeout: 3000 });
+          this._notifierService.notify('warning', 'Unable to create the product');
+          // this._flashMesgService.show('Unable to create the product', { cssClass: 'alert-danger', timeout: 3000 });
         }
 
         // if(error){
@@ -51,13 +52,14 @@ export class ProductFormComponent implements OnInit {
       this._prodService.updateProduct(id, formVal.name, formVal.rate, formVal.unit).subscribe((data) => {
         console.log(data['success']);
         if (data['success']) {
-          this._flashMesgService.show('Product ' + data['response'].name + ' has been successfully updated', { cssClass: 'alert-success', timeout: 3000 });
-          setTimeout(() => {
-            this._router.navigate(['products']);
-          }, 3000);
+          this._notifierService.notify('success','Product ' + data['response'].name + ' has been successfully updated');
+          this._router.navigate(['products']);
+          // setTimeout(() => {
+          //   this._router.navigate(['products']);
+          // }, 3000);
         }
         else {
-          this._flashMesgService.show('Unable to create the product', { cssClass: 'alert-danger', timeout: 3000 });
+          this._notifierService.notify('error','Unable to update the product');
         }
 
         // if(error){

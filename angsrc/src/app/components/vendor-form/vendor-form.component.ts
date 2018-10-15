@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { VendorService, Vendor } from '../../services/vendor.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FlashMessagesService } from 'angular2-flash-messages';
+// import { FlashMessagesService } from 'angular2-flash-messages';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-vendor-form',
@@ -34,7 +35,8 @@ export class VendorFormComponent implements OnInit {
     private _vendorService: VendorService,
     private _router : Router,
     private _route : ActivatedRoute,
-    private _flashMsgService : FlashMessagesService
+    private _notifierService : NotifierService
+    // private _flashMsgService : FlashMessagesService
     ) { }
 
   ngOnInit() {
@@ -95,8 +97,7 @@ export class VendorFormComponent implements OnInit {
         this.vendor = data;
       }, error => {
           console.log(error);
-          this._flashMsgService.show(error.error, { cssClass : 'alert-danger', timeout : 3000});
-      
+         this._notifierService.notify('error', error.error);
       });
       //edit Vendor
     }else{

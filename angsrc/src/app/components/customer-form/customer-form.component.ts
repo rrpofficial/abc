@@ -3,8 +3,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService , Customer } from '../../services/customer.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ActivatedRoute, Router } from '@angular/router';
-import { asTextData } from '@angular/core/src/view';
+import { NotifierService } from 'angular-notifier';
+// import { asTextData } from '@angular/core/src/view';
 // import { CustomerComponent } from '../customer/customer.component';
+
 
 @Component({
   selector: 'app-customer-form',
@@ -37,7 +39,7 @@ export class CustomerFormComponent implements OnInit {
     private _customerService : CustomerService,
     private _router : Router,
     private _route : ActivatedRoute,
-    private _flashMsgService : FlashMessagesService
+    private _notifierService : NotifierService
   ) { }
 
   ngOnInit() {
@@ -120,11 +122,11 @@ export class CustomerFormComponent implements OnInit {
       this._customerService.editCustomer<Customer>(id, customer).subscribe((data)=>{
           this.customer = data;
           if(this.customer) {
-            this._flashMsgService.show('Customer has been edited', {cssClass : 'alert-success', timeout : 3000});
+            this._notifierService.notify('success','Customer has been modified');
             this._router.navigate(['customers']);
           }else{
             if(this.customer) {
-              this._flashMsgService.show('Customer could not be modified', {cssClass : 'alert-danger', timeout : 3000});
+              this._notifierService.notify('error','Could not updat the customer');
             }
           }
       });
@@ -157,11 +159,11 @@ export class CustomerFormComponent implements OnInit {
       this._customerService.createCustomer<Customer>(customer).subscribe((data)=>{
           this.customer = data;
           if(this.customer) {
-            this._flashMsgService.show('Customer has been created', {cssClass : 'alert-success', timeout : 3000});
+            this._notifierService.notify('success','Customer has been created');
             this._router.navigate(['customers']);
           }else{
             if(this.customer) {
-              this._flashMsgService.show('Customer could not be created', {cssClass : 'alert-danger', timeout : 3000});
+              this._notifierService.notify('error','Could not create the Customer');
             }
           }
       });

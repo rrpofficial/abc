@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MaterialService } from '../../services/material.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-material-form',
@@ -21,7 +21,7 @@ export class MaterialFormComponent implements OnInit {
     private _materialService : MaterialService,
     private _router : Router,
     private _route : ActivatedRoute,
-    private _flashMsgService : FlashMessagesService
+    private _notifierService : NotifierService
     ) {}
 
   ngOnInit() {
@@ -50,10 +50,12 @@ export class MaterialFormComponent implements OnInit {
       this._materialService.updateMaterial(id, name, rate, unit).subscribe((data)=>{
         console.log(data);
         if(data['success']){
-          this._flashMsgService.show('Material has been updated', { cssClass : 'alert-success', timeout : 3000 });
-          setTimeout(()=>{
-            this._router.navigate(['/materials/']);
-          }, 3000)
+          // this._flashMsgService.show('Material has been updated', { cssClass : 'alert-success', timeout : 3000 });
+          this._notifierService.notify('success','Material has been updated');
+          this._router.navigate(['/materials/']);
+          // setTimeout(()=>{
+          //   this._router.navigate(['/materials/']);
+          // }, 3000)
         }
       });
     }else{
@@ -64,10 +66,11 @@ export class MaterialFormComponent implements OnInit {
       this._materialService.createMaterial(name, rate, unit).subscribe((data)=>{
         console.log(data);
         if(data['success']){
-          this._flashMsgService.show('Material has been created', { cssClass : 'alert-success', timeout : 3000 });
-          setTimeout(()=>{
-            this._router.navigate(['/materials/']);
-          }, 3000)
+          this._notifierService.notify('success','Material has been created');
+          this._router.navigate(['/materials/']);
+          // setTimeout(()=>{
+          //   this._router.navigate(['/materials/']);
+          // }, 3000)
         }
       });
     }

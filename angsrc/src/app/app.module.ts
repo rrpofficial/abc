@@ -8,8 +8,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HttpModule } from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
-import { FlashMessagesModule } from 'angular2-flash-messages';
+import { HttpClientModule } from '@angular/common/http';
+// import { FlashMessagesModule } from 'angular2-flash-messages';
+import { NotifierModule } from 'angular-notifier';
 import { ProductComponent } from './components/product/product.component';
 import { OrderComponent } from './components/order/order.component';
 import { RecievableComponent } from './components/recievable/recievable.component';
@@ -62,8 +63,28 @@ import {AppRoutesModule} from './app-routes.module';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    FlashMessagesModule.forRoot(),
+    // FlashMessagesModule.forRoot(),
     NgbModule.forRoot(),
+    NotifierModule.withConfig({
+      behaviour: {
+        autoHide: 3000,
+        onClick: false,
+        onMouseover: 'pauseAutoHide',
+        showDismissButton: true,
+        stacking: 4
+      },
+      position: {
+        horizontal: {
+          position: 'right',
+          distance: 12
+        },
+        vertical: {
+          position: 'bottom',
+          distance: 12,
+          gap: 10
+        }
+      }
+    }),
     AppRoutesModule
   ],
   providers: [],
