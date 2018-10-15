@@ -9,7 +9,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-// import { FlashMessagesModule } from 'angular2-flash-messages';
 import { NotifierModule } from 'angular-notifier';
 import { ProductComponent } from './components/product/product.component';
 import { OrderComponent } from './components/order/order.component';
@@ -54,9 +53,7 @@ import {AppRoutesModule} from './app-routes.module';
     VendorFormComponent,
     UserFormComponent,
     MaterialFormComponent,
-    // NgbdModalConfirmAutofocus
   ],
-  // entryComponents: [ NgbdModalConfirmAutofocus],
   imports: [
   BrowserModule,
     HttpClientModule,
