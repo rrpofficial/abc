@@ -2,30 +2,46 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const orderSchema = new mongoose.Schema({
-        quantity : Number,
-        discount : Number,
-        finalRate : Number,
-        price : Number,
-        recievedDate : Date,
-        dispatchedDate : Date,
-        deliveredDate : Date,
-        dueDate : Date,
-        customer : {
-            type :  mongoose.Schema.Types.ObjectId,
-            ref : 'Customer'
-          },
-        product : {
-              type :  mongoose.Schema.Types.ObjectId,
-              ref : 'Product'
-            },
-        recievables : {
-            type : mongoose.Schema.Types.ObjectId,
-            ref = 'Recievable'
-        }
+    product  : {
+        type : mongoose.Schema.Types.ObjectId,
+    },
+    customer : {
+        type : mongoose.Schema.Types.ObjectId,
+        },
+    quantity : Number,
+    unit : String,
+    rate : Number,
+    discount: Number,
+    finalRate : Number,
+    price : Number,
+    orderRecievedDate : {
+        type : Date,
+        default : Date.now() - 24*60*60*1000,
+    },
+    orderDate :{
+        type : Date,
+        default : Date.now(),
+    },
+    dueDate : {
+        type : Date,
+        default : Date.now() + 30*24*60*60*1000,
+    },
+    paymentStatus : {
+        type : String,
+        enum : ['Pending', 'Partial', 'Complete', 'Defaulted']
+    },
+    payments : [{
+        description : String,
+        amount : Number,
+        paymentDate : {
+            type : Date,
+            default : Date.now(),
+        },
+    }]
        
 });
 
-function validateRecievable(recievable){
+function validateOrder(order){
     const schema = {
         // name : Joi.string().min(5).max(50).required(),
         // email : Joi.string().min(5).max(255).required().email(),

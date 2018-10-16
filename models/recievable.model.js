@@ -2,7 +2,16 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const recievableSchema = new mongoose.Schema({
-    
+    order : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Order'
+    },
+    paymentStatus :{
+        type : String
+    },
+    paymentDate : {
+        type : Date,
+    }
 });
 
 function validateRecievable(recievable){
