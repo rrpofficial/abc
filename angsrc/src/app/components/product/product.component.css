@@ -54,3 +54,18 @@
     font-size: 1em;
     background-color:  #33b5e5
 } */
+.input-group-append{
+    margin-top: -3.85em;
+    position: relative;
+    min-height: 2.35em;
+    float: right;
+}
+.input-group-text{
+    background: #33b5e5;
+    color : whitesmoke;
+}
+
+.form-control:focus{
+    border-color: #33b5e5;
+    box-shadow: 0 0 0 0.1rem rgba(55, 181, 229, 0.5);
+}

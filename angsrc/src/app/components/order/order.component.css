@@ -1,0 +1,51 @@
+.vertical-aligned{
+    vertical-align: middle;
+}
+.card{
+    font-weight: 600;
+    font-size: .9em;
+    position: relative;
+    /* font-family: 'Fahkwang', sans-serif; */
+    font-family: 'Archivo', sans-serif;
+    /* background-color: white; */
+    width: 100%;
+    margin-bottom: .5rem;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 14px 0px;
+    box-sizing: border-box; */
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    /* padding: 1em 1em 0.9em; */
+    border-radius: 3px;
+    border-left: 5px solid #33b5e5;
+    /* text-transform: uppercase; */
+}
+
+.card:hover{
+    transform: translateY(-4px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 14px 0px;
+    /* background-color: rgb(40, 45, 47);
+    background-color: white; */
+}
+.card-header{
+    /* background: #2eabd8; */
+    /* background: rgba(9, 189, 165, 0.5);
+    color: whitesmoke; */
+}
+
+.border{
+    border-color: rgba(230, 128, 25, 0.85);
+    /* border: 2px; */
+   
+}
+.complete{
+    border-color: rgba(230, 128, 25, 0.85);
+    color: whitesmoke;
+}
+.partpayment{
+    background: rgba(230, 128, 25, 0.85);
+    color: whitesmoke;
+}
+.defaulted{
+    background: rgba(230, 128, 25, 0.85);
+    color: whitesmoke;
+}

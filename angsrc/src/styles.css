@@ -3,15 +3,16 @@
 /* @import "~/angular-notifier/styles/core.css";
 @import "~/angular-notifier/styles/styles/types"; */
 @import "~angular-notifier/styles.css";
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Fahkwang');
-
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Fahkwang'); */
+@import url('https://fonts.googleapis.com/css?family=Archivo');
 
 body{
   /* font-family: 'Montserrat', sans-serif; */
-  font-family: 'Fahkwang', sans-serif;
+  /* font-family: 'Fahkwang', sans-serif; */
+  font-family: 'Archivo', sans-serif;
   font-size : 1em;
-  font-weight: 700;
+  font-weight: bold;
 }
 .btn-primary{
   color: whitesmoke;

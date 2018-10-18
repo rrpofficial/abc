@@ -4,9 +4,11 @@ const Joi = require('joi');
 const orderSchema = new mongoose.Schema({
     product  : {
         type : mongoose.Schema.Types.ObjectId,
+        ref : 'Product'
     },
     customer : {
         type : mongoose.Schema.Types.ObjectId,
+        ref : 'Customer'
         },
     quantity : Number,
     unit : String,

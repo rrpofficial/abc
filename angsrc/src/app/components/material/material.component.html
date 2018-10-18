@@ -1,12 +1,25 @@
 <div class="container">
 
-  <div style="margin-top: 20px" class="active-cyan-4 mb-4">
+  <!-- <div style="margin-top: 20px" class="active-cyan-4 mb-4">
     <input class="form-control" type="text" placeholder="Search Materials" aria-label="Search">
-  </div>
+  </div> -->
+  <div class="row">
+      <div class="col-md-12">
+              <div class="input-group" id="adv-search" style="margin-top: 20px" class="active-cyan-4 mb-4">
+                      <input #query (keyup)="search(query.value)"type="text" class="form-control" placeholder="Search Raw Materials..." />
+              </div>
+      </div>
+      <div class="col">
+              <div class="input-group-append">
+                      <span class="input-group-text red lighten-3" id="basic-text1"><i class="fa fa-search"
+                                      aria-hidden="true"></i></span>
+              </div>
+      </div>
+</div>
   <p>
     <a routerLink="/materials/new" class="btn btn-primary"> New Raw Material</a>
   </p>
-  <app-bs-card *ngFor="let material of materials" style="margin-bottom: 20px;">
+  <app-bs-card *ngFor="let material of searchedMaterials" style="margin-bottom: 20px;">
     <ng-container class="bs-card-item-name">
       <p>{{material.name}}</p>
     </ng-container>

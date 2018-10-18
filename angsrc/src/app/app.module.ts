@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -30,6 +30,7 @@ import { VendorFormComponent } from './components/vendor-form/vendor-form.compon
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { MaterialFormComponent } from './components/material-form/material-form.component';
 import {AppRoutesModule} from './app-routes.module';
+import { OrderFormComponent } from './components/order-form/order-form.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {AppRoutesModule} from './app-routes.module';
     VendorFormComponent,
     UserFormComponent,
     MaterialFormComponent,
+    OrderFormComponent,
   ],
   imports: [
   BrowserModule,

@@ -1,0 +1,141 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Order Form
+    </div>
+    <div class="card-body">
+      <form [formGroup]="orderForm" (ngSubmit)="submitOrderForm()">
+        <div class="row">
+          <div class="col-4 form-group">
+            <label for="customer">Customer</label>
+            <!-- <input id="customer" formControlName="customer" type="text" class="form-control" placeholder="Customer"> -->
+            <select name="customer" id="customer" formControlName="customer" class="form-control">
+              <option *ngFor="let customer of customers">{{customer.name}}</option>
+            </select>
+          </div>
+
+          <div class="col-4 form-group">
+            <label for="product">Product</label>
+            <!-- <input formControlName="product" id="product" type="text" class="form-control" placeholder="Product"> -->
+            <select name="product" id="product" formControlName="product" class="form-control">
+              <option *ngFor="let product of products">{{product.name}}</option>
+            </select>
+          </div>
+          <div class="col-md-2 form-group">
+            <label for="quantity">Quantity</label>
+            <input type="text" formControlName="quantity" id="quantity" class="form-control" placeholder="10">
+          </div>
+          <div class="col-md-2 form-group">
+            <label for="unit">Unit</label>
+            <input type="text" formControlName="unit" id="unit" class="form-control" placeholder="Tonnes">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <label for="quantity">Quantity</label>
+            <input type="text" formControlName="quantity" id="quantity" class="form-control" placeholder="10 tonnes">
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="unit">Unit</label>
+            <input type="text" formControlName="unit" id="unit" class="form-control" placeholder="Tonnes">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 form-group">
+            <label for="rate">Rate</label>
+            <input type="text" formControlName="rate" id="rate" class="form-control" placeholder="Product Rate ₹">
+          </div>
+          <div class="col-md-3 form-group">
+            <label for="discount">Discount</label>
+            <input type="text" formControlName="discount" id="discount" class="form-control" placeholder="Discount ₹">
+          </div>
+          <div class="col-md-3 form-group">
+            <label for="finalRate">Final Rate</label>
+            <input type="text" formControlName="finalRate" id="finalRate" class="form-control" placeholder="Final Rate after discount ₹">
+          </div>
+          <div class="col-md-3 form-group">
+            <label for="price">Order Price</label>
+            <input type="text" formControlName="price" id="price" class="form-control" placeholder="Order Price ₹">
+          </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+          <div class="col-4 form-group">
+            <label for="orderRecDate">Order Recieved Date</label>
+            <div class="input-group">
+              <input ngbDatepicker #dOrd="ngbDatepicker" formControlName="orderRecDate" id="orderRecDate" type="text"
+                class="form-control" placeholder="dd-mm-yyyy">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dOrd.toggle()" type="button"><i class="fa fa-calendar-alt"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 form-group">
+            <label for="orderDate">Order Date</label>
+            <div class="input-group">
+
+              <input ngbDatepicker #dOd="ngbDatepicker" formControlName="orderDate" id="orderDate" type="text" class="form-control"
+                placeholder="dd-mm-yyyy">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dOd.toggle()" type="button"><i class="fa fa-calendar-alt"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 form-group">
+            <label for="dueDate">Due Date</label>
+            <div class="input-group">
+
+              <input ngbDatepicker #dDD="ngbDatepicker" formControlName="dueDate" id="dueDate" type="text" class="form-control"
+                placeholder="dd-mm-yyyy">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dDD.toggle()" type="button"><i class="fa fa-calendar-alt"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-4 form-group">
+            <label for="paymentStatus">Payment Status</label>
+            <!-- <input type="text" formControlName="paymentStatus" id="paymentStatus" class="form-control"> -->
+            <select name="paymentStatus" id="paymentStatus" class="form-control">Choose payment Status
+              <option>Pending</option>
+              <option>Partial</option>
+              <option>Complete</option>
+              <option>Defaulted</option>
+            </select>
+          </div>
+        </div>
+        <strong>Payments</strong>
+        <div class="row">
+          <div class="col-md-4 form-group">
+            <label for="amount">Amount</label>
+            <input type="text" formControlName="amount" id="amount" class="form-control">
+          </div>
+          <div class="col-md-4 form-group">
+            <label for="description">Description</label>
+            <input type="text" formControlName="description" id="description" class="form-control">
+          </div>
+          <div class="col-md-4 form-group">
+            <label for="paymentDate">Payment Date</label>
+            <div class="input-group">
+              <input type="text" ngbDatepicker #dPD="ngbDatepicker" formControlName="paymentDate" id="paymentDate"
+                class="form-control" placeholder="dd-mm-yyyy">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dPD.toggle()" type="button"><i class="fa fa-calendar-alt"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <button class="btn btn-primary" type="submit">Save Order</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

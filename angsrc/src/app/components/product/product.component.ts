@@ -7,7 +7,8 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  products: any;
+  products;
+  searchedProducts;
 
   constructor(private productService: ProductService) {
 
@@ -18,6 +19,21 @@ export class ProductComponent implements OnInit {
     this.productService.getAllProducts().subscribe((data) => {
       // console.log('products', data);
     this.products = data;
+    this.searchedProducts = data;
     });
+  }
+
+  search(query : string){
+   if(query.length >= 3) {
+    this.searchedProducts = this.products.filter(
+      (product) => {
+        return product.name.toLowerCase().includes(query.toLowerCase());
+        console.log('product name',product.name);
+      });
+    // console.log(this.searchedProducts);
+    // console.log(query.toLowerCase());
+   }else{
+     this.searchedProducts = this.products;
+   }
   }
 }

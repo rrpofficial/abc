@@ -1,3 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+                <div class="input-group" id="adv-search" style="margin-top: 20px" class="active-cyan-4 mb-4">
+                        <input #query (keyup)="search(query.value)"type="text" class="form-control" placeholder="Search Orders..." />
+                </div>
+        </div>
+        <div class="col">
+                <div class="input-group-append">
+                        <span class="input-group-text red lighten-3" id="basic-text1"><i class="fa fa-search"
+                                        aria-hidden="true"></i></span>
+                </div>
+        </div>
+</div>
 <p>
-  order works!
+        <a [routerLink]="['/orders','new']" class="btn btn-primary"> Create New Order</a>
 </p>
+  <div *ngFor="let order of orders; let i = index;" class="card">
+    <div class="card-header pending" (click)="isCollapsed[i] = !isCollapsed[i]">
+      <div class="row">
+        <div class="col-4">
+            Customer : {{order.customer.name}}
+        </div>
+        <div class="col-5">
+            Product : {{order.product.name}}
+        </div>
+        <div class="col-3">
+            Payment Status : {{order.paymentStatus}}
+        </div>
+      </div>
+    </div>
+    <div class="card-body" [class.collapse]="!isCollapsed[i]" >
+      <div class="row">
+        <div class="col-4">
+          <p>{{order.dueDate | date : 'mediumDate'}}</p>
+        </div>
+        <div class="col-4">
+          <p>{{order.orderDate | date : 'mediumDate'}}</p>
+        </div>
+        <div class="col-4">
+          <p>{{order.price | currency : 'INR'}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>

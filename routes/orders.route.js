@@ -5,9 +5,19 @@ const passport = require('passport');
 const {Order} = require('../models/order.model');
 
 router.get('/', async(req, res)=>{
+    const orders = await Order.find()
+    .populate({ path: 'product', select: 'name' })
+    .populate({path : 'customer', select: 'name'})
+    .sort({orderDate : -1});
+
+    res.send(orders);
 });
 
 router.get('/:id', async(req, res)=>{
+    const order = await Order.findById(req.params.id)
+    .populate({ path: 'product', select: 'name' })
+    .populate({path : 'customer', select: 'name'});
+    res.send(order);
 });
 
 // router.post('/', async(req, res)=>{

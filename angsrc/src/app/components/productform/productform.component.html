@@ -1,13 +1,12 @@
 <div class="container" style="margin-top: 3em; font-weight : 600; font-size : 0.85em">
+        <p>
+                <a [routerLink]="['/products']" class="btn btn-primary btn-block col-2"> Back</a>
+        </p>
         <div class="card" style="padding: 1em; background-color: #33b5e5!important; color: whitesmoke">
             Product Form
         </div>
     <div class="card" style="padding: 1em;">
-        <!-- <div style="padding-left: 10px;" class="row ">
-            <div class="col center"> -->
-                <!-- <form [formGroup]="changePasswordForm" > -->
-                
-                <form [formGroup]="productForm" (ngSubmit)="submitProductForm()">
+               <form [formGroup]="productForm" (ngSubmit)="submitProductForm()">
                     <div class="row">
                             <div class="col-8 form-group">
                                     <label for="name">Product Name</label>
@@ -32,9 +31,8 @@
                                     <label for="unit">Unit</label>
                                     <!-- <input formControlName="confirm-password" id="confirm-password" type="text" class="form-control"> -->
                                     <select formControlName= "unit" class="form-control" id="exampleFormControlSelect1">
-                                        <option>Kg</option>
-                                        <option>Ton</option>
-                                        <option>Litre</option>
+                                        <option>Tonnes</option>
+                                        <option>Litres</option>
                                     </select>
                                 </div>
                                 <div class="col-6 form-group" style="text-align: center;">

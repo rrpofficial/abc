@@ -62,3 +62,9 @@ export class ProductService {
     return this._http.delete('http://localhost:3000/api/products/'+id, {headers : headers}).pipe(map(res=>res));
   }
 }
+
+export interface Product {
+  name : string,
+  rate : number,
+  unit : string
+}
