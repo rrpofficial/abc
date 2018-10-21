@@ -30,7 +30,7 @@ const orderSchema = new mongoose.Schema({
     },
     paymentStatus : {
         type : String,
-        enum : ['Pending', 'Partial', 'Complete', 'Defaulted']
+        enum : ['Pending', 'Complete', 'Defaulted']
     },
     payments : [{
         description : String,
@@ -39,10 +39,20 @@ const orderSchema = new mongoose.Schema({
             type : Date,
             default : Date.now(),
         },
-    }]
+    }],
+    amountPaid : Number,
+    amountDue : Number
        
 });
 
+function getUnixTimeStamp(dateObj){
+    const year = dateObj.year;
+    const month = dateObj.month;
+    const day = dateObj.day;
+    const dtime = new Date(year+'-'+month+'-'+day).getTime();
+    const tmstmp = Math.floor(dtime);
+    return tmstmp;
+}
 function validateOrder(order){
     const schema = {
         // name : Joi.string().min(5).max(50).required(),
@@ -53,5 +63,7 @@ function validateOrder(order){
 }
 
 
+
 exports.Order = mongoose.model('Order', orderSchema);
-exports.validate = validateOrder
+exports.validate = validateOrder;
+exports.getTimestamp = getUnixTimeStamp;

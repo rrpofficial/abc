@@ -9,7 +9,7 @@ router.get('/', async(req, res)=>{
     .populate({ path: 'product', select: 'name' })
     .populate({path : 'customer', select: 'name'})
     .sort({orderDate : -1});
-
+    console.log(orders);
     res.send(orders);
 });
 
@@ -24,8 +24,8 @@ router.get('/:id', async(req, res)=>{
 
 router.post('/', passport.authenticate('jwt', {session: false}), async(req, res)=>{
     const order = new Order({
-        product : req.body.productId,
-        customer : req.body.customerId,
+        product : req.body.product._id,
+        customer : req.body.customer._id,
         quantity : req.body.quantity,
         unit : req.body.unit,
         rate : req.body.rate,
@@ -37,6 +37,8 @@ router.post('/', passport.authenticate('jwt', {session: false}), async(req, res)
         dueDate : req.body.dueDate,
         paymentStatus : req.body.paymentStatus,
         payments : req.body.payments,
+        amountDue : req.body.amountDue,
+        amountPaid : req.body.amountPaid
     });
     console.log(JSON.stringify(req.body))
     const result = await order.save();
@@ -45,8 +47,8 @@ router.post('/', passport.authenticate('jwt', {session: false}), async(req, res)
 
 router.put('/:id', passport.authenticate('jwt', {session: false}), async(req, res)=>{
     const order = new Order({
-        product : req.body.productId,
-        customer : req.body.customerId,
+        product : req.body.product._id,
+        customer : req.body.customer._id,
         quantity : req.body.quantity,
         unit : req.body.unit,
         rate : req.body.rate,
@@ -58,6 +60,8 @@ router.put('/:id', passport.authenticate('jwt', {session: false}), async(req, re
         dueDate : req.body.dueDate,
         paymentStatus : req.body.paymentStatus,
         payments : req.body.payments,
+        paidAmount : req.body.paidAmount,
+        dueAmount : req.body.dueAmount
     });
     
     const result = await Order.findOneAndUpdate({ _id : req.params.id}, order, {new : true});
