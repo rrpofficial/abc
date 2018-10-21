@@ -173,7 +173,6 @@ export class OrderFormComponent implements OnInit {
       finalRate :  this.orderForm.get('finalRate').value,
       price: orderPrice,
       paymentStatus : this.orderForm.get('paymentStatus').value,
-      // payments : this.orderForm.get('payments').value,
       payments : paymentsBody,
       amountDue : dueAmount,
       amountPaid : paidAmount,

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-user-form',
@@ -22,7 +21,6 @@ export class UserFormComponent implements OnInit {
     private _userService : UserService,
     private _router: Router,
     private _route : ActivatedRoute,
-    private _flashMsgService : FlashMessagesService,
     ) { }
 
   ngOnInit() {

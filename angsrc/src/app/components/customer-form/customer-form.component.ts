@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService , Customer } from '../../services/customer.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 // import { asTextData } from '@angular/core/src/view';
