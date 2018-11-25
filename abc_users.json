@@ -1,3 +1,3 @@
-{"_id":{"$oid":"5baa2d4f5924c24550cf01c8"},"name":"RR Ponnala","email":"rponnala@vidyly.com","password":"$2a$10$H/oa1uDJli92.iiYvVssO.2.x8PvED9emDbe94ihqSVQcD7SLrJFK","isAdmin":true,"__v":0}
-{"_id":{"$oid":"5baa2e09cb32f61ff0cd334b"},"name":"Rajashekar","email":"rshekar@vidyly.com","password":"$2a$10$6cA3mkxQR0mofymOFXHkAOFyTeQGxLICQ/bkdLNZ16DsrmoaML7.u","isAdmin":true,"__v":0}
+{"_id":{"$oid":"5baa2d4f5924c24550cf01c8"},"name":"Rakesh","email":"rponnala@vidly.com","password":"$2a$10$H/oa1uDJli92.iiYvVssO.2.x8PvED9emDbe94ihqSVQcD7SLrJFK","isAdmin":true,"__v":0}
+{"_id":{"$oid":"5baa2e09cb32f61ff0cd334b"},"name":"Rajashekar","email":"rshekar@vidly.com","password":"$2a$10$6cA3mkxQR0mofymOFXHkAOFyTeQGxLICQ/bkdLNZ16DsrmoaML7.u","isAdmin":true,"__v":0}
 {"_id":{"$oid":"5baa2ec27c4fe14c3c0b5c57"},"name":"Bal Reddy","email":"bkalakanti@vidly.com","password":"$2a$10$hD64fgiFN6VphkeWfB9MgujikndUZ9y7lIoYjR4uQSVAAUX8ilJu.","isAdmin":false,"__v":0}

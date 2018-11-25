@@ -34,7 +34,7 @@ export class OrderFormComponent implements OnInit {
         quantity : [''],
         unit : [''],
         rate:  [''],
-        discount :  ['0'],
+        discount :  ['0',Validators.compose([])],
         finalRate :  [''],
         price: [''],
         paymentStatus :  [''],

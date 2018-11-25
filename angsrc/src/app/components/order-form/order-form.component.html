@@ -10,6 +10,7 @@
             <label for="customer">Customer</label>
             <!-- <input id="customer" formControlName="customer" type="text" class="form-control" placeholder="Customer"> -->
             <select name="customer" id="customer" formControlName="customer" class="form-control">
+              <option value="" selected disabled>Select Customer..</option>
               <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.name}}</option>
             </select>
           </div>
@@ -18,6 +19,7 @@
             <label for="product">Product</label>
             <!-- <input formControlName="product" id="product" type="text" class="form-control" placeholder="Product"> -->
             <select name="product" id="product" formControlName="product" class="form-control">
+              <option value="" selected disabled>Select Product..</option>
               <option *ngFor="let product of products" [ngValue]="product" >{{product.name}}</option>
             </select>
           </div>
@@ -125,6 +127,7 @@
             <label for="paymentStatus">Payment Status</label>
             <!-- <input type="text" formControlName="paymentStatus" id="paymentStatus" class="form-control"> -->
             <select name="paymentStatus" formControlName="paymentStatus" id="paymentStatus" class="form-control">Choose payment Status
+              <option value="" selected disabled>Select payment status..</option>
               <option>Pending</option>
               <option>Complete</option>
               <option>Defaulted</option>

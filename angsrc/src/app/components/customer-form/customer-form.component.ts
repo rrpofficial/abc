@@ -3,8 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService , Customer } from '../../services/customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
-// import { asTextData } from '@angular/core/src/view';
-// import { CustomerComponent } from '../customer/customer.component';
 
 
 @Component({
